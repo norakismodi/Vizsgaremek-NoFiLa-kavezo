@@ -4,6 +4,7 @@ Kismődi Nóra (Projektvezető) - Backend
 Szordel László - Adatbázis
 
 Választott téma: Kávézó rendelés felvevő rendszer
+
 Leírás: Egyszerű, gyors és precíz rendelésfelvétel a pulttól a konyháig. A rendszer lehetővé teszi, hogy a vendégek asztalnál 
 vagy pultnál leadott rendelései azonnal megjelenjenek a konyhai kijelzőn. Így elkerülhetjük a félreértéseket és a papíralapú káoszt. 
 Átlátható státuszkövetés, személyre szabható menü, több terminál támogatása, mindez egy könnyen kezelhető felületen. 
@@ -14,6 +15,7 @@ színkódos vagy státuszjelző segítségével követhetők: felvéve, készül
 A felhasználóknak módjában áll a regisztráció lehetősége, kiszolgáláskor a rendelések név szerinti felszolgálására lesz lehetőség.
 
 KKK követelmeny:
+
 Elvárások a szoftverrel szemben (KKK) 
 -Életszerű, reális problémára nyújt megoldást. 
 -Megfelelő adattárolási és adatkezelési funkciók 
