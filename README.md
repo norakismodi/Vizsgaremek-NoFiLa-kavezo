@@ -25,7 +25,7 @@ Elvárások a szoftverrel szemben (KKK)
 -Tiszta kód elvei alapján íródjon 
 -A dokumentáció legyen részletes (működési feltételek, célok) 
 A beadandó csomag kötelező tartalma 
--A szoftver teljes forráskódja (Backend, Frontend, Mobil, stb.). 
+-A szoftver teljes forráskódja (Backend, Frontend, Mobil, stb.).  
 -Telepítőkészlet (Amennyiben készült natív asztali alkalmazás). 
 -Adatbázismodell-diagram (ER diagram / adatmodell). 
 -Adatbázis export fájl (A séma és a kezdő/tesztadatok betöltéséhez). 
