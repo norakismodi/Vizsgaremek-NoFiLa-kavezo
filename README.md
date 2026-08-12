@@ -3,7 +3,7 @@ Guth Fióna Fanni - Frontend
 Kismődi Nóra (Projektvezető) - Backend
 Szordel László - Adatbázis
 
-Választott téma: Kávézó rendelés felvevő rendszer
+Választott téma: Kávézó webshop
 
 Leírás: Egyszerű, gyors és precíz rendelésfelvétel a pulttól a konyháig. A rendszer lehetővé teszi, hogy a vendégek asztalnál 
 vagy pultnál leadott rendelései azonnal megjelenjenek a konyhai kijelzőn. Így elkerülhetjük a félreértéseket és a papíralapú káoszt. 
