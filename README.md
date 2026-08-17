@@ -5,15 +5,7 @@ Szordel László - Adatbázis
 
 Választott téma: Kávézó webshop
 
-Leírás: Egyszerű, gyors és precíz rendelésfelvétel a pulttól a konyháig. A rendszer lehetővé teszi, hogy a vendégek asztalnál 
-vagy pultnál leadott rendelései azonnal megjelenjenek a konyhai kijelzőn. Így elkerülhetjük a félreértéseket és a papíralapú káoszt. 
-Átlátható státuszkövetés, személyre szabható menü, több terminál támogatása, mindez egy könnyen kezelhető felületen. 
-Kevesebb várakozás, pontosabb kiszolgálás, elégedettebb vendégek. Egy modern, letisztult kávézóban a pincérek vagy pultosok tableten 
-vagy érintőképernyős terminálon veszik fel a rendelést. A rendszer azonnal továbbítja a konyhai monitorra, ahol a barista látja a sorrendet,
-a speciális kéréseket, mint a laktózmentes vagy extra shot, és a prioritást. Az asztalok vagy a rendelésszámok 
-színkódos vagy státuszjelző segítségével követhetők: felvéve, készül, kész, kiszolgálva. 
-A felhasználóknak módjában áll a regisztráció lehetősége, kiszolgáláskor a rendelések név szerinti felszolgálására lesz lehetőség.
-
+Leírás: A weboldalunk lehetővé teszi, hogy a saját kávézója az otthona legyen, kiváló minőségű kávéporok, poharak, kiegészítők a kávézás élményének a tökéletesítéséhez. Egy hely, ahol a kávé nem csupán ital, hanem gondosan válogatott minőség és kifinomult élvezet. Friss kávé, stílusos poharak, különleges kávé- és süteményreceptek – egy helyen! A weboldal egyszerűsége és praktikussága miatt könnyen lehet válogatni a kávézáshoz szükséges hozzávalók választékai között. A legfinomabb kávéporoktól a ritka, különleges tételekig. Válogatott, gondosan pörkölt kávéink között megtalálja a tiszta, karakteres ízvilágot és a nyugalom ízét is. Lehetősége van rendelt kávéja mellé elegáns poharat, csészét, vagy akár termoszt vásárolni. Minden különleges kávénkhoz precíz, részletes receptet adunk, mely mellett válogatott süteményreceptek is kísérik a kínálatot. Olyan desszertek, amelyek tökéletesen kiegészítik a kávé ízvilágát. A hagyományos tejszín mellett növényi alternatívák is elérhetők, hogy mindenki megtalálja a számára megfelelőt. A kávéporok mellett matcha zöldtea-por és kakópor is elérhető azok számára akik az igazán különleges élményre várnak. Lépjen be a különleges kávék és a hozzájuk illő sütemények világába – ahol a részletek számítanak, és minden csésze több, mint egy ital.
 KKK követelmeny:
 
 Elvárások a szoftverrel szemben (KKK) 
