@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosár</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="elso">
+        <p>INGYENES SZÁLLÍTÁS 15 000 FT-TÓL</p>
+    </div>
+
+     <header class="header">
+
+        <div class="logo">
+            <span class="logoikon">☕</span>
+            <span class="logotext">COZY CUP</span>
+        </div>
+
+        <nav class="menu">
+            <a href="home.html">FŐOLDAL</a>
+            <a href="kavek.html">KÁVÉK</a>
+            <a href="matchashop.html">MATCHA</a>
+            <a href="#">KAKAÓ</a>
+            <a href="#">KIEGÉSZÍTŐK</a>
+            <a href="#">RECEPTEK</a>
+            <a href="#">RÓLUNK</a>
+        </nav>
+
+        <div class="ikonok">
+            <a href="#" class="ikon">⌕</a>
+            <a href="#" class="ikon">♙</a>
+            <a href="kosar.html" class="ikon kosar-ikon">
+                🛒
+                <span id="kosar-szam">0</span>
+            </a>
+        </div>
+     </header>
+
+      <main class="kosar-oldal">
+         <section class="kosar-bevezeto">
+            <p class="kosar-utvonal">
+                COZY CUP / KOSÁR
+            </p>
+            <h1>A kosarad</h1>
+            <p>
+                Nézd át a kiválasztott termékeidet,
+                mielőtt folytatod a vásárlást!
+            </p>
+        </section>
+
+         <div class="kosar-elrendezes">
+            <section class="kosar-termekek">
+
+                <h2>Kiválasztott termékek</h2>
+
+                <div id="kosar-lista"></div>
+
+                <a href="matchashop.html"
+                   class="vasarlas-folytatasa">
+
+                    ← Vásárlás folytatása
+
+                </a>
+
+            </section>
+
+            <aside class="kosar-osszesito">
+
+                <h2>Rendelés összesítése</h2>
+                <div class="osszesito-sor">
+                    <span>Részösszeg</span>
+                    <span id="reszosszeg">0 Ft</span>
+                </div>
+
+                <div class="osszesito-sor">
+                    <span>Szállítás</span>
+                    <span>Fizetésnél számolva</span>
+                </div>
+
+                <p class="szallitas-info">
+                    15 000 Ft felett ingyenes szállítás!
+                </p>
+
+                <hr>
+
+                <div class="osszesito-sor vegosszeg">
+                    <span>Termékek összesen</span>
+                    <span id="vegosszeg">0 Ft</span>
+                </div>
+
+                <button class="penztar-gomb"
+                        type="button"
+                        disabled>
+
+                    TOVÁBB A PÉNZTÁRHOZ
+
+                </button>
+
+                <p class="penztar-info">
+                    A pénztár funkció hamarosan elérhető.
+                </p>
+
+            </aside>
+
+        </div>
+
+      </main>
+
+      <footer class="footer">
+
+        <div class="footer-elem">
+            <span class="footer-ikon">🚚</span>
+            <div class="footer-szoveg">
+                <h3>Gyors szállítás</h3>
+                <p>1-2 munkanap</p>
+            </div>
+        </div>
+
+        <div class="footer-elem">
+            <span class="footer-ikon">🛡</span>
+            <div class="footer-szoveg">
+                <h3>Biztonságos fizetés</h3>
+                <p>Bankkártya, utánvét</p>
+            </div>
+        </div>
+
+        <div class="footer-elem">
+            <span class="footer-ikon">☕</span>
+            <div class="footer-szoveg">
+                <h3>Minőségi termékek</h3>
+                <p>Válogatott prémium termékek</p>
+            </div>
+        </div>
+
+        <div class="footer-elem">
+            <span class="footer-ikon">🎁</span>
+            <div class="footer-szoveg">
+                <h3>Rendszeres akciók</h3>
+                <p>Iratkozz fel a hírlevelünkre</p>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="kosar.js"></script>
+</body>
+</html>
