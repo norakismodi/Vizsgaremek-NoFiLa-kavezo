@@ -29,7 +29,6 @@ public class AuthService {
             throw new UnauthorizedException("Hibás e-mail cím vagy jelszó");
         }
 
-        // A login tábla jelszó oszlopa NOT NULL, ezért a (már hash-elt) jelszó kerül bele
         loginRepository.save(Login.builder()
                 .email(user.getEmail())
                 .password(user.getPassword())
