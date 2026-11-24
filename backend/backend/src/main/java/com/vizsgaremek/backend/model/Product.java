@@ -1,48 +1,54 @@
 package com.vizsgaremek.backend.model;
 
 import jakarta.persistence.*;
+import lombok.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "products")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
+    @Column(name = "category_id", nullable = false)
+    private Integer categoryId;
+
+    @Column(name = "name", nullable = false, length = 50)
     private String name;
+
+    @Column(name = "slug", nullable = false, length = 50)
+    private String slug;
+
+    @Column(name = "description", nullable = false, length = 100)
     private String description;
-    private Double price;
+
+    @Column(name = "price", nullable = false, precision = 10, scale = 0)
+    private BigDecimal price;
+
+    @Column(name = "image_url", nullable = false, length = 100)
     private String imageUrl;
+
+    @Column(name = "stock", nullable = false)
     private Integer stock;
 
-    public Product() {
-    }
+    @Column(name = "created_at", insertable = false, updatable = false)
+    private LocalDateTime createdAt;
 
-    public Product(Long id, String name, String description, Double price, String imageUrl, Integer stock) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.imageUrl = imageUrl;
-        this.stock = stock;
-    }
+    @Column(name = "updated_at", insertable = false, updatable = false)
+    private LocalDateTime updatedAt;
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    @Column(name = "deleted_at")
+    private LocalDateTime deletedAt;
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
-
-    public Double getPrice() { return price; }
-    public void setPrice(Double price) { this.price = price; }
-
-    public String getImageUrl() { return imageUrl; }
-    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
-
-    public Integer getStock() { return stock; }
-    public void setStock(Integer stock) { this.stock = stock; }
+    @Column(name = "is_deleted", columnDefinition = "TINYINT")
+    private Boolean isDeleted;
 }
