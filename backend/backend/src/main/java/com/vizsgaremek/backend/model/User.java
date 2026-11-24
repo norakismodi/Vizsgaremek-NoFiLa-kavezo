@@ -1,51 +1,61 @@
 package com.vizsgaremek.backend.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Table(name = "registration")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class User {
 
+    // Getters and Setters
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    @Column(name = "username", nullable = false, length = 50)
     private String username;
-
-    @Column(name = "firstname", nullable = false, length = 50)
-    private String firstName;
-
-    @Column(name = "lastname", nullable = false, length = 50)
-    private String lastName;
-
-    @Column(name = "email", nullable = false, length = 255)
+    private String firstname;
+    private String lastname;
     private String email;
-
-    @Column(name = "password", nullable = false, length = 255)
     private String password;
+    private String role;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "role", nullable = false)
-    private Role role;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-    @Column(name = "created_at", insertable = false, updatable = false)
-    private LocalDateTime createdAt;
+    @Column(name = "is_deleted")
+    private Integer isDeleted = 0;
 
-    @Column(name = "updated_at", insertable = false, updatable = false)
-    private LocalDateTime updatedAt;
+    public User() {
+    }
 
-    @Column(name = "deleted_at")
-    private LocalDateTime deletedAt;
+    public User(Long id, String username, String firstname, String lastname, String email, String password, String role) {
+        this.id = id;
+        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
 
-    @Column(name = "is_deleted", nullable = false, columnDefinition = "TINYINT")
-    private Boolean isDeleted;
+    public void setId(Long id) { this.id = id; }
+
+    public void setUsername(String username) { this.username = username; }
+
+    public void setFirstname(String firstname) { this.firstname = firstname; }
+
+    public void setLastname(String lastname) { this.lastname = lastname; }
+
+    public void setEmail(String email) { this.email = email; }
+
+    public void setPassword(String password) { this.password = password; }
+
+    public void setRole(String role) { this.role = role; }
+
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public void setIsDeleted(Integer isDeleted) { this.isDeleted = isDeleted; }
 }
