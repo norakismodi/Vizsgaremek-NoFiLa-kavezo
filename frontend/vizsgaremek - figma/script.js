@@ -7,21 +7,19 @@ const matchaTermekek = [
         id: 1,
         nev: "Epres Matcha",
         ar: 3590,
-        kep: "kepek/matcha-eper.png",
+        kep: "termekkep-hianyzik.svg",
         leiras: "Prémium matcha eperízesítéssel."
     },
     {
         id: 2,
         nev: "Vaníliás Matcha",
         ar: 3490,
-        kep: "kepek/matcha-vanilia.png",
+        kep: "termekkep-hianyzik.svg",
         leiras: "Lágy, vaníliás matcha."
     }
 ];
 
-let kosar = JSON.parse(
-    localStorage.getItem("cozyKosar")
-) || [];
+let kosar = CozyKosar.beolvas();
 
 function termekekMegjelenitese(termekek) {
     matchaRacs.innerHTML = "";
@@ -66,7 +64,7 @@ function kosarbaTesz(termek) {
             mennyiseg: 1
         });
     }
-    localStorage.setItem("cozyKosar", JSON.stringify(kosar));
+    CozyKosar.ment(kosar);
     kosarFrissites();
 }
 
@@ -84,21 +82,23 @@ function kosarFrissites() {
 }
 
 
-rendezesSelect.addEventListener("change", () => {
-    let rendezett = [...matchaTermekek];
-    const mod = rendezesSelect.value;
-    if (mod === "ar-novekvo") {
-        rendezett.sort((a, b) => a.ar - b.ar);
-    } else if (mod === "ar-csokkeno") {
-        rendezett.sort((a, b) => b.ar - a.ar);
-    } else if (mod === "nev") {
-        rendezett.sort((a, b) =>
-            a.nev.localeCompare(b.nev, "hu")
-        );
-    }
-    termekekMegjelenitese(rendezett);
-});
+if (matchaRacs && rendezesSelect && termekDb) {
+    rendezesSelect.addEventListener("change", () => {
+        let rendezett = [...matchaTermekek];
+        const mod = rendezesSelect.value;
+        if (mod === "ar-novekvo") {
+            rendezett.sort((a, b) => a.ar - b.ar);
+        } else if (mod === "ar-csokkeno") {
+            rendezett.sort((a, b) => b.ar - a.ar);
+        } else if (mod === "nev") {
+            rendezett.sort((a, b) =>
+                a.nev.localeCompare(b.nev, "hu")
+            );
+        }
+        termekekMegjelenitese(rendezett);
+    });
 
-termekekMegjelenitese(matchaTermekek);
+    termekekMegjelenitese(matchaTermekek);
+}
 
 kosarFrissites();

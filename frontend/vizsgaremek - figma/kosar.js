@@ -1,6 +1,4 @@
-let kosar = JSON.parse(
-    localStorage.getItem("cozyKosar")
-) || [];
+let kosar = CozyKosar.beolvas();
 
 const kosarLista = document.getElementById("kosar-lista");
 const reszosszegElem = document.getElementById("reszosszeg");
@@ -13,10 +11,7 @@ function penzFormazas(osszeg) {
 }
 
 function kosarMentese() {
-    localStorage.setItem(
-        "cozyKosar",
-        JSON.stringify(kosar)
-    );
+    CozyKosar.ment(kosar);
     kosarMegjelenitese();
 
 }
@@ -80,12 +75,11 @@ function kosarMegjelenitese() {
         kartya.className = "kosar-termek";
 
         kartya.innerHTML = `
-            <img src="${termek.kep}"
-                 alt="${termek.nev}">
+            <img src="termekkep-hianyzik.svg" alt="">
 
             <div class="kosar-termek-adatok">
 
-                <h3>${termek.nev}</h3>
+                <h3></h3>
 
                 <p>
                     ${penzFormazas(termek.ar)} / db
@@ -118,6 +112,10 @@ function kosarMegjelenitese() {
 
             </div>
         `;
+
+        kartya.querySelector("img").src = termek.kep;
+        kartya.querySelector("img").alt = termek.nev;
+        kartya.querySelector("h3").textContent = termek.nev;
 
         kartya.querySelector(".csokkentes")
             .addEventListener("click", () => {

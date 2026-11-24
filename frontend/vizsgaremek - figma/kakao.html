@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kakaók</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="elso">
+        <p>INGYENES SZÁLLÍTÁS 15 000 FT-TÓL</p>
+    </div>
+
+    <header class="header">
+        <div class="logo">
+            <span class="logoikon">☕</span>
+            <span class="logotext">COZY CUP</span>
+        </div>
+
+        <nav class="menu">
+            <a href="home.html">FŐOLDAL</a>
+            <a href="kavek.html">KÁVÉK</a>
+            <a href="matchashop.html">MATCHA</a>
+            <a href="kakao.html">KAKAÓ</a>
+            <a aria-disabled="true" title="Hamarosan elérhető">KIEGÉSZÍTŐK</a>
+            <a aria-disabled="true" title="Hamarosan elérhető">RECEPTEK</a>
+            <a aria-disabled="true" title="Hamarosan elérhető">RÓLUNK</a>
+        </nav>
+
+        <div class="ikonok">
+        <a aria-disabled="true" title="Hamarosan elérhető" class="ikon">⌕</a>
+        <a aria-disabled="true" title="Hamarosan elérhető" class="ikon">♙</a>
+        <a href="kosar.html" class="ikon kosar-ikon" aria-label="Kosár">
+            🛒
+            <span id="kosar-szam">0</span>
+        </a>
+
+
+    </div>
+    </header>
+
+    <main class="kakao-shop">
+    <section class="kakao-bevezeto">
+
+        <p class="kakao-utvonal">
+            COZY CUP / KAKAÓ
+        </p>
+
+        <h1>
+            Fedezd fel a
+            <span class="kakao-kiemeles">kakaók</span>
+            világát!
+        </h1>
+
+        <p class="kakao-leiras">
+            Krémes, csokoládés élmények minden kortyban!
+            A klasszikus kakaótól a különleges,
+            ízesített finomságokig – fedezd fel
+            a COZY CUP kakaóporait!
+        </p>
+
+    </section>
+
+
+    <section class="kakao-termekek">
+
+        <div class="kakao-termek-fejlec">
+
+            <div>
+                <h2>Kakaóporaink</h2>
+
+                <p id="kakao-termek-db">
+                    Termékek betöltése...
+                </p>
+            </div>
+
+            <div class="kakao-rendezes">
+
+                <label for="kakao-rendezes-select">
+                    Rendezés:
+                </label>
+
+                <select id="kakao-rendezes-select">
+
+                    <option value="alap">
+                        Alapértelmezett
+                    </option>
+
+                    <option value="ar-novekvo">
+                        Ár szerint növekvő
+                    </option>
+
+                    <option value="ar-csokkeno">
+                        Ár szerint csökkenő
+                    </option>
+
+                    <option value="nev">
+                        Név szerint
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="kakao-racs" id="kakao-racs">
+        </div>
+
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-elem">
+            <span class="footer-ikon">🚚</span>
+            <div class="footer-szoveg">
+                <h3>Gyors szállítás</h3>
+                <p>1-2 munkanap</p>
+            </div>
+        </div>
+        <div class="footer-elem">
+            <span class="footer-ikon">🛡</span>
+            <div class="footer-szoveg">
+                <h3>Biztonságos fizetés</h3>
+                <p>Bankkártya, utánvét</p>
+            </div>
+        </div>
+        <div class="footer-elem">
+            <span class="footer-ikon">☕</span>
+            <div class="footer-szoveg">
+                <h3>Minőségi termékek</h3>
+                <p>Válogatott prémium termékek</p>
+            </div>
+        </div>
+        <div class="footer-elem">
+            <span class="footer-ikon">🎁</span>
+            <div class="footer-szoveg">
+                <h3>Rendszeres akciók</h3>
+                <p>Iratkozz fel a hírlevelünkre</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="kosar-kozos.js"></script>
+    <script src="kakao.js"></script>
+
+</body>
+</html>

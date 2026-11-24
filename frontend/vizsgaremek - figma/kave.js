@@ -14,7 +14,7 @@ const kaveTermekek = [
         id: 101,
         nev: "Klasszikus kávépor",
         ar: 2690,
-        kep: "",
+        kep: "kavek/klasszikuskave.png",
         leiras: "Gazdag aromájú klasszikus kávé."
     },
 
@@ -22,7 +22,7 @@ const kaveTermekek = [
         id: 102,
         nev: "Vaníliás kávépor",
         ar: 2890,
-        kep: "",
+        kep: "kavek/vaniliaskave.png",
         leiras: "Lágy vaníliás ízvilág."
     },
 
@@ -30,7 +30,7 @@ const kaveTermekek = [
         id: 103,
         nev: "Mogyorós kávépor",
         ar: 2990,
-        kep: "",
+        kep: "kavek/mogyoroskave.png",
         leiras: "Különleges mogyorós aroma."
     },
 
@@ -38,7 +38,7 @@ const kaveTermekek = [
         id: 104,
         nev: "Karamellás kávépor",
         ar: 2990,
-        kep: "",
+        kep: "kavek/karamellaskave.png",
         leiras: "Édes, krémes karamellás íz."
     },
 
@@ -46,7 +46,7 @@ const kaveTermekek = [
         id: 105,
         nev: "Fahéjas kávépor",
         ar: 2890,
-        kep: "",
+        kep: "kavek/fahejaskave.png",
         leiras: "Melengető fahéjas kávé."
     },
 
@@ -54,7 +54,7 @@ const kaveTermekek = [
         id: 106,
         nev: "Ír krémes kávépor",
         ar: 3190,
-        kep: "",
+        kep: "kavek/irkremeskave.png",
         leiras: "Krémes, különleges kávéélmény."
     },
 
@@ -62,7 +62,7 @@ const kaveTermekek = [
         id: 107,
         nev: "Erős pörkölésű kávépor",
         ar: 2790,
-        kep: "",
+        kep: "kavek/erosporkolesukave.png",
         leiras: "Intenzív, karakteres íz."
     },
 
@@ -70,15 +70,15 @@ const kaveTermekek = [
         id: 108,
         nev: "Koffeinmentes kávépor",
         ar: 2990,
-        kep: "",
+        kep: "kavek/koffeinmenteskave.png",
         leiras: "Kávéélmény koffein nélkül."
     },
 
     {
         id: 109,
-        nev: "Mokás kávépor",
+        nev: "Mokkás kávépor",
         ar: 3190,
-        kep: "",
+        kep: "kavek/mokkaskave.png",
         leiras: "Csokoládés, gazdag ízvilág."
     },
 
@@ -86,7 +86,7 @@ const kaveTermekek = [
         id: 110,
         nev: "Mézeskalácsos kávépor",
         ar: 3190,
-        kep: "",
+        kep: "kavek/mezeskalacskave.png",
         leiras: "Fűszeres, ünnepi kávékülönlegesség."
     },
 
@@ -94,7 +94,7 @@ const kaveTermekek = [
         id: 111,
         nev: "Kókuszos kávépor",
         ar: 3090,
-        kep: "",
+        kep: "kavek/kokuszoskave.png",
         leiras: "Lágy, egzotikus kókuszos íz."
     },
 
@@ -102,7 +102,7 @@ const kaveTermekek = [
         id: 112,
         nev: "Pisztáciás kávépor",
         ar: 3390,
-        kep: "",
+        kep: "kavek/pisztaciaskave.png",
         leiras: "Krémes, pisztáciás különlegesség."
     },
 
@@ -110,7 +110,7 @@ const kaveTermekek = [
         id: 113,
         nev: "Fehércsokoládés kávépor",
         ar: 3290,
-        kep: "",
+        kep: "kavek/fehercsokiskave.png",
         leiras: "Édes fehércsokoládés íz."
     },
 
@@ -118,7 +118,7 @@ const kaveTermekek = [
         id: 114,
         nev: "Sós karamellás kávépor",
         ar: 3290,
-        kep: "",
+        kep: "kavek/soskaramellaskave.png",
         leiras: "Édes és sós ízek harmóniája."
     },
 
@@ -126,7 +126,7 @@ const kaveTermekek = [
         id: 115,
         nev: "Mandulás kávépor",
         ar: 3090,
-        kep: "",
+        kep: "kavek/mandulaskave.png",
         leiras: "Finom mandulás aroma."
     },
 
@@ -134,7 +134,7 @@ const kaveTermekek = [
         id: 116,
         nev: "Narancsos kávépor",
         ar: 3090,
-        kep: "",
+        kep: "kavek/narancsoskave.png",
         leiras: "Frissítő, gyümölcsös íz."
     },
 
@@ -142,7 +142,7 @@ const kaveTermekek = [
         id: 117,
         nev: "Málnás kávépor",
         ar: 3190,
-        kep: "",
+        kep: "kavek/malnaskave.png",
         leiras: "Gyümölcsös, édes kávékülönlegesség."
     },
 
@@ -150,16 +150,14 @@ const kaveTermekek = [
         id: 118,
         nev: "Fűszeres chai kávépor",
         ar: 3290,
-        kep: "y",
+        kep: "kavek/fuszereschaikave.png",
         leiras: "Fahéjas, fűszeres kávéélmény."
     }
 
 ];
 
 
-let kosar = JSON.parse(
-    localStorage.getItem("cozyKosar")
-) || [];
+let kosar = CozyKosar.beolvas();
 
 
 
@@ -220,10 +218,7 @@ function kosarbaTesz(termek) {
         });
 
     }
-    localStorage.setItem(
-        "cozyKosar",
-        JSON.stringify(kosar)
-    );
+    CozyKosar.ment(kosar);
     kosarFrissites();
 
 }
