@@ -59,6 +59,21 @@ public class GlobalExceptionHandler {
         return build(HttpStatus.BAD_REQUEST, message);
     }
 
+    @ExceptionHandler(org.springframework.web.servlet.resource.NoResourceFoundException.class)
+    public ResponseEntity<ErrorResponse> handleNoResource(Exception ex) {
+        return build(HttpStatus.NOT_FOUND, "Nincs ilyen végpont.");
+    }
+
+    @ExceptionHandler(org.springframework.http.converter.HttpMessageNotReadableException.class)
+    public ResponseEntity<ErrorResponse> handleBadBody(Exception ex) {
+        return build(HttpStatus.BAD_REQUEST, "Hibás vagy hiányzó JSON a kérés törzsében.");
+    }
+
+    @ExceptionHandler(org.springframework.web.HttpRequestMethodNotSupportedException.class)
+    public ResponseEntity<ErrorResponse> handleMethodNotAllowed(Exception ex) {
+        return build(HttpStatus.METHOD_NOT_ALLOWED, "Ez a HTTP metódus nem engedélyezett ezen a végponton.");
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGeneral(Exception ex) {
         log.error("Váratlan hiba történt", ex);

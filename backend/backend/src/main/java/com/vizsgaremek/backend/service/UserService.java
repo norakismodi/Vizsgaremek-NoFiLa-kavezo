@@ -20,16 +20,15 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class UserService {
-
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public UserResponse createUser(CreateUserRequest request) {
-        if (userRepository.existsActiveByEmail(request.getEmail())) {
-            throw new EmailAlreadyExistsException("Ez az e-mail cím már foglalt: " + request.getEmail());
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new EmailAlreadyExistsException("Ez az email már foglalt: " + request.getEmail());
         }
-        if (userRepository.existsActiveByUsername(request.getUsername())) {
+        if (userRepository.existsByUsername(request.getUsername())) {
             throw new BadRequestException("Ez a felhasználónév már foglalt: " + request.getUsername());
         }
 
@@ -42,8 +41,8 @@ public class UserService {
                 .role(Role.user)
                 .isDeleted(false)
                 .build();
-
-        return toResponseDto(userRepository.save(user));
+        User saved = userRepository.save(user);
+        return toResponseDto(saved);
     }
 
     public List<UserResponse> getAll() {
@@ -63,10 +62,10 @@ public class UserService {
         User user = userRepository.findActiveById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Nincs ilyen felhasználó: " + id));
 
-        if (!user.getEmail().equals(request.getEmail()) && userRepository.existsActiveByEmail(request.getEmail())) {
-            throw new EmailAlreadyExistsException("Ez az e-mail cím már foglalt: " + request.getEmail());
+        if (!user.getEmail().equals(request.getEmail()) && userRepository.existsByEmail(request.getEmail())) {
+            throw new EmailAlreadyExistsException("Ez az email már foglalt: " + request.getEmail());
         }
-        if (!user.getUsername().equals(request.getUsername()) && userRepository.existsActiveByUsername(request.getUsername())) {
+        if (!user.getUsername().equals(request.getUsername()) && userRepository.existsByUsername(request.getUsername())) {
             throw new BadRequestException("Ez a felhasználónév már foglalt: " + request.getUsername());
         }
 
@@ -75,7 +74,8 @@ public class UserService {
         user.setLastName(request.getLastName());
         user.setEmail(request.getEmail());
 
-        return toResponseDto(userRepository.save(user));
+        User saved = userRepository.save(user);
+        return toResponseDto(saved);
     }
 
     @Transactional
