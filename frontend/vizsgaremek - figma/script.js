@@ -2,27 +2,22 @@ const matchaRacs = document.getElementById("matcha-racs");
 const rendezesSelect = document.getElementById("rendezes-select");
 const termekDb = document.getElementById("termek-db");
 
-const matchaTermekek = [
-    {
-        id: 1,
-        nev: "Epres Matcha",
-        ar: 3590,
-        kep: "termekkep-hianyzik.svg",
-        leiras: "Prémium matcha eperízesítéssel."
-    },
-    {
-        id: 2,
-        nev: "Vaníliás Matcha",
-        ar: 3490,
-        kep: "termekkep-hianyzik.svg",
-        leiras: "Lágy, vaníliás matcha."
-    }
-];
+const matchaTermekek = CozyTermekek.matchaTermekek;
+
+const egyediTermekId = new URLSearchParams(location.search).get("termek");
 
 let kosar = CozyKosar.beolvas();
 
 function termekekMegjelenitese(termekek) {
+    if (egyediTermekId !== null) {
+        termekek = matchaTermekek.filter(termek => String(termek.id) === egyediTermekId);
+    }
     matchaRacs.innerHTML = "";
+    if (egyediTermekId !== null && !termekek.length) {
+        matchaRacs.innerHTML = '<p class="egyedi-nincs">A keresett termék nem található.</p>';
+        termekDb.textContent = "0 termék";
+        return;
+    }
     termekek.forEach(termek => {
         const kartya = document.createElement("div");
         kartya.className = "matcha-kartya";
@@ -102,3 +97,15 @@ if (matchaRacs && rendezesSelect && termekDb) {
 }
 
 kosarFrissites();
+if (matchaRacs && egyediTermekId !== null) {
+    document.querySelector("main").classList.add("egyedi-nezet");
+    const fejlec = document.querySelector(".matcha-termek-fejlec");
+    fejlec.querySelector("h2").textContent = "Kiválasztott termék";
+    const vissza = document.createElement("a");
+    vissza.className = "egyedi-vissza";
+    vissza.href = "matchashop.html";
+    vissza.textContent = "← Vissza az összes termékhez";
+    fejlec.before(vissza);
+    const termek = matchaTermekek.find(t => String(t.id) === egyediTermekId);
+    if (termek) document.title = termek.nev + " – Cozy Cup";
+}

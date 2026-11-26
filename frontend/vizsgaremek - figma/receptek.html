@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receptek – Cozy Cup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="elso">
+        <p>INGYENES SZÁLLÍTÁS 15 000 FT-TÓL</p>
+    </div>
+
+    <header class="header">
+        <a class="logo" href="home.html" aria-label="Cozy Cup – Főoldal">
+            <span class="logoikon">☕</span>
+            <span class="logotext">COZY CUP</span>
+        </a>
+        <nav class="menu">
+            <a href="home.html">FŐOLDAL</a>
+            <a href="kavek.html">KÁVÉK</a>
+            <a href="matchashop.html">MATCHA</a>
+            <a href="kakao.html">KAKAÓ</a>
+            <a href="kiegeszitok.html">KIEGÉSZÍTŐK</a>
+            <a href="receptek.html" aria-current="page">RECEPTEK</a>
+            <a href="rolunk.html">RÓLUNK</a>
+        </nav>
+        <div class="ikonok">
+            <button type="button" id="globalis-kereso-gomb" class="ikon" aria-label="Termékkereső" aria-expanded="false" aria-controls="globalis-kereso">⌕</button>
+            <a href="fiok.html" id="fiok-ikon" class="ikon" aria-label="Bejelentkezés / regisztráció" title="Fiókom"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg></a>
+            <a href="kosar.html"
+               class="ikon kosar-ikon" aria-label="Kosár">
+                🛒
+                <span id="kosar-szam">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="receptek-oldal">
+        <section class="receptek-bevezeto">
+            <div>
+                <p class="receptek-utvonal">COZY CUP / RECEPTEK</p>
+                <h1>Otthoni <span class="receptek-kiemeles">finomságok</span> minden alkalomra</h1>
+                <p class="receptek-leiras">Sütemények, desszertek és különleges italok. Fedezd fel receptjeinket, és teremts otthon is kávézói hangulatot!</p>
+            </div>
+            <img src="receptek_header.png" alt="Hangulatos kávézói finomságok" class="receptek-fejkep">
+        </section>
+        <section>
+            <div class="receptek-vezerlok">
+                <div><h2>Receptjeink</h2><p id="recept-db" aria-live="polite">Receptek betöltése...</p></div>
+                <div class="recept-szuro-panel">
+                    <div id="recept-kategoriak" class="recept-kategoriak" role="group" aria-label="Receptkategória">
+                        <button type="button" data-kategoria="osszes" aria-pressed="true" class="aktiv">Összes</button>
+                        <button type="button" data-kategoria="suti" aria-pressed="false">Sütemények</button>
+                        <button type="button" data-kategoria="ital" aria-pressed="false">Italok</button>
+                    </div>
+                    <label class="recept-kereso-cimke" for="recept-kereso">Keresés <input id="recept-kereso" type="search" placeholder="Recept vagy hozzávaló"></label>
+                </div>
+            </div>
+            <div id="recept-racs" class="recept-racs"></div>
+        </section>
+    </main>
+    <footer class="footer">
+
+        <div class="footer-elem">
+            <span class="footer-ikon">🚚</span>
+            <div class="footer-szoveg">
+                <h3>Gyors szállítás</h3>
+                <p>1-2 munkanap</p>
+            </div>
+        </div>
+
+        <div class="footer-elem">
+            <span class="footer-ikon">🛡</span>
+            <div class="footer-szoveg">
+                <h3>Biztonságos fizetés</h3>
+                <p>Bankkártya, utánvét</p>
+            </div>
+        </div>
+
+        <div class="footer-elem">
+            <span class="footer-ikon">☕</span>
+            <div class="footer-szoveg">
+                <h3>Minőségi termékek</h3>
+                <p>Válogatott prémium termékek</p>
+            </div>
+        </div>
+
+        <div class="footer-elem">
+            <span class="footer-ikon">🎁</span>
+            <div class="footer-szoveg">
+                <h3>Rendszeres akciók</h3>
+                <p>Iratkozz fel a hírlevelünkre</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="termekek.js"></script>
+    <script src="kereso.js"></script>
+    <script src="fiok.js"></script>
+    <script src="kosar-kozos.js"></script>
+    <script src="receptek.js"></script>
+</body>
+</html>

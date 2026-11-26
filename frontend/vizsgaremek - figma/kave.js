@@ -8,161 +8,26 @@ const termekDb = document.getElementById(
     "kave-termek-db"
 );
 
-const kaveTermekek = [
+const kaveTermekek = CozyTermekek.kaveTermekek;
 
-    {
-        id: 101,
-        nev: "Klasszikus kávépor",
-        ar: 2690,
-        kep: "kavek/klasszikuskave.png",
-        leiras: "Gazdag aromájú klasszikus kávé."
-    },
 
-    {
-        id: 102,
-        nev: "Vaníliás kávépor",
-        ar: 2890,
-        kep: "kavek/vaniliaskave.png",
-        leiras: "Lágy vaníliás ízvilág."
-    },
-
-    {
-        id: 103,
-        nev: "Mogyorós kávépor",
-        ar: 2990,
-        kep: "kavek/mogyoroskave.png",
-        leiras: "Különleges mogyorós aroma."
-    },
-
-    {
-        id: 104,
-        nev: "Karamellás kávépor",
-        ar: 2990,
-        kep: "kavek/karamellaskave.png",
-        leiras: "Édes, krémes karamellás íz."
-    },
-
-    {
-        id: 105,
-        nev: "Fahéjas kávépor",
-        ar: 2890,
-        kep: "kavek/fahejaskave.png",
-        leiras: "Melengető fahéjas kávé."
-    },
-
-    {
-        id: 106,
-        nev: "Ír krémes kávépor",
-        ar: 3190,
-        kep: "kavek/irkremeskave.png",
-        leiras: "Krémes, különleges kávéélmény."
-    },
-
-    {
-        id: 107,
-        nev: "Erős pörkölésű kávépor",
-        ar: 2790,
-        kep: "kavek/erosporkolesukave.png",
-        leiras: "Intenzív, karakteres íz."
-    },
-
-    {
-        id: 108,
-        nev: "Koffeinmentes kávépor",
-        ar: 2990,
-        kep: "kavek/koffeinmenteskave.png",
-        leiras: "Kávéélmény koffein nélkül."
-    },
-
-    {
-        id: 109,
-        nev: "Mokkás kávépor",
-        ar: 3190,
-        kep: "kavek/mokkaskave.png",
-        leiras: "Csokoládés, gazdag ízvilág."
-    },
-
-    {
-        id: 110,
-        nev: "Mézeskalácsos kávépor",
-        ar: 3190,
-        kep: "kavek/mezeskalacskave.png",
-        leiras: "Fűszeres, ünnepi kávékülönlegesség."
-    },
-
-    {
-        id: 111,
-        nev: "Kókuszos kávépor",
-        ar: 3090,
-        kep: "kavek/kokuszoskave.png",
-        leiras: "Lágy, egzotikus kókuszos íz."
-    },
-
-    {
-        id: 112,
-        nev: "Pisztáciás kávépor",
-        ar: 3390,
-        kep: "kavek/pisztaciaskave.png",
-        leiras: "Krémes, pisztáciás különlegesség."
-    },
-
-    {
-        id: 113,
-        nev: "Fehércsokoládés kávépor",
-        ar: 3290,
-        kep: "kavek/fehercsokiskave.png",
-        leiras: "Édes fehércsokoládés íz."
-    },
-
-    {
-        id: 114,
-        nev: "Sós karamellás kávépor",
-        ar: 3290,
-        kep: "kavek/soskaramellaskave.png",
-        leiras: "Édes és sós ízek harmóniája."
-    },
-
-    {
-        id: 115,
-        nev: "Mandulás kávépor",
-        ar: 3090,
-        kep: "kavek/mandulaskave.png",
-        leiras: "Finom mandulás aroma."
-    },
-
-    {
-        id: 116,
-        nev: "Narancsos kávépor",
-        ar: 3090,
-        kep: "kavek/narancsoskave.png",
-        leiras: "Frissítő, gyümölcsös íz."
-    },
-
-    {
-        id: 117,
-        nev: "Málnás kávépor",
-        ar: 3190,
-        kep: "kavek/malnaskave.png",
-        leiras: "Gyümölcsös, édes kávékülönlegesség."
-    },
-
-    {
-        id: 118,
-        nev: "Fűszeres chai kávépor",
-        ar: 3290,
-        kep: "kavek/fuszereschaikave.png",
-        leiras: "Fahéjas, fűszeres kávéélmény."
-    }
-
-];
-
+const egyediTermekId = new URLSearchParams(location.search).get("termek");
 
 let kosar = CozyKosar.beolvas();
 
 
 
 function kavekMegjelenitese(termekek) {
+    if (egyediTermekId !== null) {
+        termekek = kaveTermekek.filter(termek => String(termek.id) === egyediTermekId);
+    }
     kaveRacs.innerHTML = "";
+    if (egyediTermekId !== null && !termekek.length) {
+        kaveRacs.innerHTML = '<p class="egyedi-nincs">A keresett termék nem található.</p>';
+        termekDb.textContent = "0 termék";
+        return;
+    }
+
 
     termekek.forEach(termek => {
 
@@ -259,3 +124,17 @@ rendezesSelect.addEventListener("change", () => {
 
 kavekMegjelenitese(kaveTermekek);
 kosarFrissites();
+
+if (egyediTermekId !== null) {
+    const main = document.querySelector("main");
+    main.classList.add("egyedi-nezet");
+    const fejlec = document.querySelector(".kave-termek-fejlec");
+    fejlec.querySelector("h2").textContent = "Kiválasztott termék";
+    const vissza = document.createElement("a");
+    vissza.className = "egyedi-vissza";
+    vissza.href = "kavek.html";
+    vissza.textContent = "← Vissza az összes termékhez";
+    fejlec.before(vissza);
+    const termek = kaveTermekek.find(t => String(t.id) === egyediTermekId);
+    if (termek) document.title = termek.nev + " – Cozy Cup";
+}

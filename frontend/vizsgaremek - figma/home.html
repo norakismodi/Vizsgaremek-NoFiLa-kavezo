@@ -12,24 +12,24 @@
     </div>
 
     <header class="header">
-        <div class="logo">
+        <a class="logo" href="home.html" aria-label="Cozy Cup – Főoldal">
             <span class="logoikon">☕</span>
             <span class="logotext">COZY CUP</span>
-        </div>
+        </a>
 
         <nav class="menu">
             <a href="home.html">FŐOLDAL</a>
             <a href="kavek.html">KÁVÉK</a>
             <a href="matchashop.html">MATCHA</a>
             <a href="kakao.html">KAKAÓ</a>
-            <a aria-disabled="true" title="Hamarosan elérhető">KIEGÉSZÍTŐK</a>
-            <a aria-disabled="true" title="Hamarosan elérhető">RECEPTEK</a>
-            <a aria-disabled="true" title="Hamarosan elérhető">RÓLUNK</a>
+            <a href="kiegeszitok.html">KIEGÉSZÍTŐK</a>
+            <a href="receptek.html">RECEPTEK</a>
+            <a href="rolunk.html">RÓLUNK</a>
         </nav>
 
         <div class="ikonok">
-        <a aria-disabled="true" title="Hamarosan elérhető" class="ikon">⌕</a>
-        <a aria-disabled="true" title="Hamarosan elérhető" class="ikon">♙</a>
+        <button type="button" id="globalis-kereso-gomb" class="ikon" aria-label="Termékkereső" aria-expanded="false" aria-controls="globalis-kereso">⌕</button>
+        <a href="fiok.html" id="fiok-ikon" class="ikon" aria-label="Bejelentkezés / regisztráció" title="Fiókom"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg></a>
         <a href="kosar.html" class="ikon kosar-ikon" aria-label="Kosár">
             🛒
             <span id="kosar-szam">0</span>
@@ -80,7 +80,7 @@
             </div>
         </a>
 
-        <a aria-disabled="true" title="Hamarosan elérhető" class="kategoriakartya">
+        <a href="kiegeszitok.html" class="kategoriakartya">
             <img src="pohar.png" alt="Poharak">
             <div class="kategoriaszoveg">
                 <h3>Poharak</h3>
@@ -88,7 +88,7 @@
             </div>
         </a>
 
-        <a aria-disabled="true" title="Hamarosan elérhető" class="kategoriakartya">
+        <a href="kiegeszitok.html" class="kategoriakartya">
             <img src="kieg.png" alt="Kiegészítők">
             <div class="kategoriaszoveg">
                 <h3>Kiegészítők</h3>
@@ -96,7 +96,7 @@
             </div>
         </a>
 
-        <a aria-disabled="true" title="Hamarosan elérhető" class="kategoriakartya">
+        <a href="kiegeszitok.html?kategoria=tejszinek" class="kategoriakartya">
             <img src="tejszinek.png" alt="Tejszínek">
             <div class="kategoriaszoveg">
                 <h3>Tejszínek</h3>
@@ -107,51 +107,69 @@
 
     <section class="kiemelt">
         <div class="kiemelt-kartya termekek">
-            <h2>Népszerű termékek</h2>
+            <div class="kiemelt-fejlec">
+                <h2>Népszerű termékek</h2>
+                <a href="#kategoriak">Összes kategória →</a>
+            </div>
             <div class="kiemelttartalom">
-                <div class="kiskartya">
-                    <img src="kave.png" alt="Kávé">
-                    <h3>Kávé</h3>
+                <a class="kiskartya termek-link" href="kavek.html?termek=101">
+                    <img src="kavek/klasszikuskave.png" alt="Klasszikus kávépor">
+                    <h3>Klasszikus kávépor</h3>
                     <p>2 690 Ft</p>
-                </div>
-                <div class="kiskartya">
-                    <img src="kakaotermek.png" alt="Kakaó">
-                    <h3>Kakaópor</h3>
-                    <p>2 890 Ft</p>
-                </div>
-                <div class="kiskartya">
-                    <img src="poharak.png" alt="Bögre">
-                    <h3>Bögre</h3>
-                    <p>2 890 Ft</p>
-                </div>
+                </a>
+                <a class="kiskartya termek-link" href="kakao.html?termek=201">
+                    <img src="kako/klasszikuskakaopor.png" alt="Klasszikus kakaópor">
+                    <h3>Klasszikus kakaópor</h3>
+                    <p>2 490 Ft</p>
+                </a>
+                <a class="kiskartya termek-link" href="matchashop.html?termek=1">
+                    <img src="matchak/epresmatchapor.png" alt="Epres Matcha">
+                    <h3>Epres Matcha</h3>
+                    <p>3 590 Ft</p>
+                </a>
+                <a class="kiskartya termek-link" href="kiegeszitok.html?termek=301">
+                    <img src="kiegeszitok/keramiabogre.webp" alt="Kerámiabögre">
+                    <h3>Kerámiabögre</h3>
+                    <p>2 490 Ft</p>
+                </a>
             </div>
         </div>
 
         <div class="kiemelt-kartya kavereceptek">
-            <h2>Különleges kávé receptek</h2>
+            <div class="kiemelt-fejlec">
+                <h2>Különleges kávé receptek</h2>
+                <a href="receptek.html">További receptek →</a>
+            </div>
             <div class="kiemelttartalom">
-                <div class="kiskartya">
-                    <img src="epres_vanilias_latte.png" alt="Epres vaníliás latte">
-                    <h3>Epres vaníliás latte</h3>
-                </div>
-                <div class="kiskartya">
-                    <img src="epres_matcha_latte.png" alt="Epres matcha latte">
+                <a class="kiskartya recept-link" href="receptek.html#epres-vanilias-latte">
+                    <img src="receptek_kepek/epres-vanilias-latte.webp" alt="Epres-vaníliás latte">
+                    <h3>Epres-vaníliás latte</h3>
+                    <span class="recept-cta">Recept megtekintése →</span>
+                </a>
+                <a class="kiskartya recept-link" href="receptek.html#epres-matcha-latte">
+                    <img src="receptek_kepek/epres-matcha-latte.webp" alt="Epres matcha latte">
                     <h3>Epres matcha latte</h3>
-                </div>
+                    <span class="recept-cta">Recept megtekintése →</span>
+                </a>
             </div>
         </div>
 
         <div class="kiemelt-kartya sutireceptek">
-            <h2>Sütemény receptek</h2>
+            <div class="kiemelt-fejlec">
+                <h2>Sütemény receptek</h2>
+                <a href="receptek.html">További receptek →</a>
+            </div>
             <div class="kiemelttartalom">
-                <div class="kiskartya">
-                    <img src="tiramisu.png" alt="Tiramisu">
+                <a class="kiskartya recept-link" href="receptek.html#tiramisu">
+                    <img src="receptek_kepek/tiramisu.webp" alt="Tiramisu">
                     <h3>Tiramisu</h3>
-                </div>
-                <div class="kiskartya">
-                    <img src="muffin.png" alt="Muffin">
+                    <span class="recept-cta">Recept megtekintése →</span>
+                </a>
+                <a class="kiskartya recept-link" href="receptek.html#muffin">
+                    <img src="receptek_kepek/muffin.webp" alt="Muffin">
                     <h3>Muffin</h3>
-                </div>
+                    <span class="recept-cta">Recept megtekintése →</span>
+                </a>
             </div>
         </div>
     </section>
@@ -187,6 +205,9 @@
         </div>
     </footer>
 
+    <script src="termekek.js"></script>
+    <script src="kereso.js"></script>
+    <script src="fiok.js"></script>
     <script src="kosar-kozos.js"></script>
     <script src="script.js"></script>
 </body>

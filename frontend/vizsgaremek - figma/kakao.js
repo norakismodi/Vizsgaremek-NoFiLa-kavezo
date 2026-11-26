@@ -8,142 +8,26 @@ const termekDb = document.getElementById(
     "kakao-termek-db"
 );
 
-const kakaoTermekek = [
-    {
-        id: 201,
-        nev: "Klasszikus kakaópor",
-        ar: 2490,
-        kep: "kako/klasszikuskakaopor.png",
-        leiras: "Gazdag, lágy kakaóíz."
-    },
-    {
-        id: 202,
-        nev: "Vaníliás kakaópor",
-        ar: 2690,
-        kep: "kako/vaniliaskakaopor.png",
-        leiras: "Lágy, krémes vaníliás íz."
-    },
-    {
-        id: 203,
-        nev: "Mogyorós kakaópor",
-        ar: 2790,
-        kep: "kako/mogyoroskakaopor.png",
-        leiras: "Krémes, mogyorós kakaó."
-    },
-    {
-        id: 204,
-        nev: "Karamellás kakaópor",
-        ar: 2790,
-        kep: "kako/karamellaskakaopor.png",
-        leiras: "Édes, krémes karamellás íz."
-    },
-    {
-        id: 205,
-        nev: "Fahéjas kakaópor",
-        ar: 2690,
-        kep: "kako/fahejaskakaopor.png",
-        leiras: "Melengető, fahéjas kakaó."
-    },
-    {
-        id: 206,
-        nev: "Ír krémes kakaópor",
-        ar: 2890,
-        kep: "kako/irkremeskakaopor.png",
-        leiras: "Lágy, krémes kakaókülönlegesség."
-    },
-    {
-        id: 207,
-        nev: "Étcsokoládés kakaópor",
-        ar: 2890,
-        kep: "kako/etcsokoladeskakaopor.png",
-        leiras: "Intenzív, gazdag csokoládéíz."
-    },
-    {
-        id: 208,
-        nev: "Fehércsokoládés kakaópor",
-        ar: 2990,
-        kep: "kako/fehercsokoladeskakaopor.png",
-        leiras: "Édes, lágy fehércsokoládés íz."
-    },
-    {
-        id: 209,
-        nev: "Sós karamellás kakaópor",
-        ar: 2990,
-        kep: "kako/soskaramellaskakaopor.png",
-        leiras: "Édes és enyhén sós karamell."
-    },
-    {
-        id: 210,
-        nev: "Málnás kakaópor",
-        ar: 2890,
-        kep: "kako/malnaskakaopor.png",
-        leiras: "Gyümölcsös, édes kakaóíz."
-    },
-    {
-        id: 211,
-        nev: "Narancsos kakaópor",
-        ar: 2790,
-        kep: "kako/narancsoskakaopor.png",
-        leiras: "Frissítő, citrusos kakaó."
-    },
-    {
-        id: 212,
-        nev: "Kókuszos kakaópor",
-        ar: 2890,
-        kep: "kako/kokuszoskakaopor.png",
-        leiras: "Krémes, egzotikus kókuszos íz."
-    },
-    {
-        id: 213,
-        nev: "Pisztáciás kakaópor",
-        ar: 3190,
-        kep: "kako/pisztaciaskakaopor.png",
-        leiras: "Lágy, diós kakaókülönlegesség."
-    },
-    {
-        id: 214,
-        nev: "Mézeskalácsos kakaópor",
-        ar: 2990,
-        kep: "kako/mezeskalacsoskakaopor.png",
-        leiras: "Fűszeres, ünnepi kakaó."
-    },
-    {
-        id: 215,
-        nev: "Mandulás kakaópor",
-        ar: 2890,
-        kep: "kako/mandulaskakaopor.png",
-        leiras: "Lágy, krémes mandulás íz."
-    },
-    {
-        id: 216,
-        nev: "Fehércsokoládés-málnás kakaópor",
-        ar: 3290,
-        kep: "kako/fehercsokoladeskakaopor (2).png",
-        leiras: "Fehércsokoládé és málna harmóniája."
-    },
-    {
-        id: 217,
-        nev: "Brownie ízű kakaópor",
-        ar: 3190,
-        kep: "kako/browniekakaopor.png",
-        leiras: "Intenzív, süteményes csokoládéíz."
-    },
-    {
-        id: 218,
-        nev: "Marcipános kakaópor",
-        ar: 3090,
-        kep: "kako/marcipanoskakaopor.png",
-        leiras: "Édes, különleges marcipáníz."
-    }
-];
+const kakaoTermekek = CozyTermekek.kakaoTermekek;
 
+
+const egyediTermekId = new URLSearchParams(location.search).get("termek");
 
 let kosar = CozyKosar.beolvas();
 
 
 function kakaokMegjelenitese(termekek) {
+    if (egyediTermekId !== null) {
+        termekek = kakaoTermekek.filter(termek => String(termek.id) === egyediTermekId);
+    }
 
     kakaoRacs.innerHTML = "";
+    if (egyediTermekId !== null && !termekek.length) {
+        kakaoRacs.innerHTML = '<p class="egyedi-nincs">A keresett termék nem található.</p>';
+        termekDb.textContent = "0 termék";
+        return;
+    }
+
 
     termekek.forEach(termek => {
 
@@ -253,3 +137,17 @@ rendezesSelect.addEventListener("change", () => {
 kakaokMegjelenitese(kakaoTermekek);
 
 kosarFrissites();
+
+if (egyediTermekId !== null) {
+    const main = document.querySelector("main");
+    main.classList.add("egyedi-nezet");
+    const fejlec = document.querySelector(".kakao-termek-fejlec");
+    fejlec.querySelector("h2").textContent = "Kiválasztott termék";
+    const vissza = document.createElement("a");
+    vissza.className = "egyedi-vissza";
+    vissza.href = "kakao.html";
+    vissza.textContent = "← Vissza az összes termékhez";
+    fejlec.before(vissza);
+    const termek = kakaoTermekek.find(t => String(t.id) === egyediTermekId);
+    if (termek) document.title = termek.nev + " – Cozy Cup";
+}

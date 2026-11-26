@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiókom – Cozy Cup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="elso">
+        <p>INGYENES SZÁLLÍTÁS 15 000 FT-TÓL</p>
+    </div>
+
+    <header class="header">
+        <a class="logo" href="home.html" aria-label="Cozy Cup – Főoldal">
+            <span class="logoikon">☕</span>
+            <span class="logotext">COZY CUP</span>
+        </a>
+
+        <nav class="menu">
+            <a href="home.html">FŐOLDAL</a>
+            <a href="kavek.html">KÁVÉK</a>
+            <a href="matchashop.html">MATCHA</a>
+            <a href="kakao.html">KAKAÓ</a>
+            <a href="kiegeszitok.html">KIEGÉSZÍTŐK</a>
+            <a href="receptek.html">RECEPTEK</a>
+            <a href="rolunk.html">RÓLUNK</a>
+        </nav>
+
+        <div class="ikonok">
+        <button type="button" id="globalis-kereso-gomb" class="ikon" aria-label="Termékkereső" aria-expanded="false" aria-controls="globalis-kereso">⌕</button>
+        <a href="fiok.html" id="fiok-ikon" class="ikon" aria-label="Bejelentkezés / regisztráció" title="Fiókom"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg></a>
+        <a href="kosar.html" class="ikon kosar-ikon" aria-label="Kosár">
+            🛒
+            <span id="kosar-szam">0</span>
+        </a>
+
+
+    </div>
+    </header>
+
+    <main class="fiok-oldal">
+        <div class="fiok-bevezeto">
+            <p class="fiok-cimke">COZY CUP / FIÓKOM</p>
+            <h1>Üdv a Cozy Cup világában!</h1>
+            <p>Jelentkezz be, vagy hozz létre saját fiókot.</p>
+        </div>
+        <section class="fiok-kartya" aria-label="Felhasználói fiók">
+            <div id="fiok-vendeg">
+                <div class="fiok-valtas" role="group" aria-label="Fiókművelet">
+                    <button type="button" id="belepes-ful" aria-pressed="true">Bejelentkezés</button>
+                    <button type="button" id="regisztracio-ful" aria-pressed="false">Regisztráció</button>
+                </div>
+                <form id="belepes-urlap">
+                    <h2>Jelentkezz be</h2>
+                    <label for="belepes-email">E-mail-cím</label>
+                    <input id="belepes-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="pelda@email.hu">
+                    <label for="belepes-jelszo">Jelszó</label>
+                    <input id="belepes-jelszo" name="password" type="password" autocomplete="current-password" required maxlength="128">
+                    <button type="submit" class="fiok-gomb">BEJELENTKEZÉS</button>
+                </form>
+                <form id="regisztracio-urlap" hidden>
+                    <h2>Hozd létre a fiókodat</h2>
+                    <div class="fiok-nevek">
+                        <div><label for="vezeteknev">Vezetéknév</label><input id="vezeteknev" name="lastname" autocomplete="family-name" required maxlength="80"></div>
+                        <div><label for="keresztnev">Keresztnév</label><input id="keresztnev" name="firstname" autocomplete="given-name" required maxlength="80"></div>
+                    </div>
+                    <label for="felhasznalonev">Felhasználónév</label>
+                    <input id="felhasznalonev" name="username" autocomplete="username" required minlength="3" maxlength="60">
+                    <label for="reg-email">E-mail-cím</label>
+                    <input id="reg-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="pelda@email.hu">
+                    <label for="reg-jelszo">Jelszó (legalább 12 karakter)</label>
+                    <input id="reg-jelszo" name="password" type="password" autocomplete="new-password" required minlength="12" maxlength="128">
+                    <label for="reg-jelszo2">Jelszó megerősítése</label>
+                    <input id="reg-jelszo2" type="password" autocomplete="new-password" required minlength="12" maxlength="128">
+                    <button type="submit" class="fiok-gomb">REGISZTRÁCIÓ</button>
+                </form>
+            </div>
+            <div id="fiok-profil" hidden>
+                <h2 id="fiok-udvozles"></h2>
+                <p class="fiok-profil-sor">E-mail-cím: <strong id="fiok-email"></strong></p>
+                <p class="fiok-profil-sor">Felhasználónév: <strong id="fiok-nev"></strong></p>
+                <a href="home.html" class="fiok-gomb">TOVÁBB A VÁSÁRLÁSHOZ</a>
+                <button type="button" id="kijelentkezes" class="fiok-masodlagos">Kijelentkezés</button>
+            </div>
+            <p id="fiok-uzenet" class="fiok-uzenet" role="status" aria-live="polite" hidden></p>
+            <p class="fiok-demo">Helyi fejlesztői mód: csak tesztadatokkal használd.</p>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-elem">
+            <span class="footer-ikon">🚚</span>
+            <div class="footer-szoveg">
+                <h3>Gyors szállítás</h3>
+                <p>1-2 munkanap</p>
+            </div>
+        </div>
+        <div class="footer-elem">
+            <span class="footer-ikon">🛡</span>
+            <div class="footer-szoveg">
+                <h3>Biztonságos fizetés</h3>
+                <p>Bankkártya, utánvét</p>
+            </div>
+        </div>
+        <div class="footer-elem">
+            <span class="footer-ikon">☕</span>
+            <div class="footer-szoveg">
+                <h3>Minőségi termékek</h3>
+                <p>Válogatott prémium termékek</p>
+            </div>
+        </div>
+        <div class="footer-elem">
+            <span class="footer-ikon">🎁</span>
+            <div class="footer-szoveg">
+                <h3>Rendszeres akciók</h3>
+                <p>Iratkozz fel a hírlevelünkre</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="termekek.js"></script>
+    <script src="kereso.js"></script>
+    <script src="fiok.js"></script>
+    <script src="kosar-kozos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
