@@ -1890,3 +1890,34 @@ body{
     .recept-pipa-lista input:checked + span { text-decoration: none; color: inherit; }
     .recept-lepeslista li::before { color: black; background: white; border: 1px solid black; }
 }
+
+/* Pénztár – helyi tesztrendelés */
+.penztar-oldal { max-width:1200px; margin:0 auto; padding:38px 32px 64px; box-sizing:border-box; }
+.penztar-oldal [hidden] { display:none !important; }
+.penztar-oldal h1 { font:600 clamp(32px,4vw,46px) Georgia,serif; margin:16px 0 8px; }
+.penztar-bevezeto { color:#684A35; font-size:17px; line-height:1.6; }
+.penztar-demo { background:#F5EBDD; border:1px solid #E3CFB9; border-radius:10px; padding:14px 16px; line-height:1.6; font-size:14px; }
+.penztar-racs { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); gap:24px; align-items:start; margin-top:24px; }
+.penztar-doboz { background:#F1E6D8; border:1px solid #E3CFB9; border-radius:16px; padding:24px; min-width:0; }
+.penztar-doboz h2 { font:600 25px/1.25 Georgia,serif; margin:0 0 16px; }
+#penztar-urlap h2:not(:first-child) { margin-top:28px; }
+.penztar-mezok { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.penztar-mezok label { display:flex; flex-direction:column; gap:7px; font-size:15px; font-weight:600; min-width:0; }
+.penztar-mezok input,.penztar-mezok textarea { width:100%; box-sizing:border-box; background:#FFF9F3; border:1px solid #C9AC91; border-radius:8px; padding:12px; font:inherit; font-weight:400; color:#3B2418; }
+.penztar-mezok textarea { resize:vertical; }
+.penztar-teljes { grid-column:1/-1; }
+.penztar-apro,#penztar-fiok-info { font-size:14px; color:#684A35; line-height:1.6; }
+#penztar-fiok-info a,.penztar-doboz a:not(.fiok-gomb) { color:#6B4226; }
+.penztar-radio { display:flex; align-items:flex-start; gap:10px; padding:13px; margin:10px 0; border:1px solid #C9AC91; border-radius:9px; background:#FFF9F3; line-height:1.5; cursor:pointer; font-size:15px; }
+.penztar-radio input { accent-color:#6B4226; width:18px; height:18px; flex:0 0 auto; margin:2px 0 0; }
+.penztar-radio small { display:block; font-size:13px; color:#684A35; }
+.penztar-termek { display:flex; gap:10px; align-items:center; padding:12px 0; border-bottom:1px solid #E3CFB9; font-size:14px; }
+.penztar-termek img { width:54px; height:54px; object-fit:contain; border-radius:6px; }
+.penztar-termek span { flex:1; overflow-wrap:anywhere; }
+.penztar-termek strong { white-space:nowrap; }
+.penztar-osszesito .osszesito-sor { margin:16px 0; gap:12px; }
+.penztar-siker { max-width:540px; margin:26px auto; text-align:center; line-height:1.6; }
+.penztar-pipa { display:inline-grid; place-items:center; width:64px; height:64px; border-radius:50%; background:#E2EAD9; color:#31552D; font-size:34px; margin-bottom:14px; }
+#rendeles-gomb:disabled,.penztar-gomb:disabled { opacity:.55; cursor:not-allowed; }
+@media(max-width:780px){.penztar-oldal{padding:24px 16px 40px}.penztar-racs{grid-template-columns:minmax(0,1fr)}.penztar-osszesito{grid-row:1}.penztar-doboz{padding:16px}}
+@media(max-width:420px){.penztar-mezok{grid-template-columns:minmax(0,1fr)}}

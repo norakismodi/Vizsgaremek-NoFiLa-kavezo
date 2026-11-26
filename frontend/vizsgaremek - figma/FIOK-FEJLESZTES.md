@@ -16,3 +16,12 @@ A fiok.js azonos eredetű /api/auth végpontokat használ.
 - POST /api/auth/logout: {}; 200 {user:null}, munkamenet törlése
 - Hiba: megfelelő HTTP státusz, {error:"magyar hibaüzenet"}.
 A meglévő Spring Boot backend_nora ág regisztrációs végpontja ettől eltér, és a megtekintett változatban nincs jelszóhash-elés vagy login. Éles összekötés előtt a backend csapattal egyeztetni kell az API-t, szerveroldali jogosultságokat, jelszóhash-elést, HTTPS/Secure sütit, CSRF-védelmet, e-mail-ellenőrzést, jelszó-visszaállítást és éles naplózást. A Python demó nem éles telepítésre való.
+
+## Pénztár – kizárólag helyi demó
+- POST /api/orders: request_id (UUID), lastname, firstname, email, phone, zip, city, street, note, payment (cod/card_demo), demo_ack (true), items [{id, quantity}].
+- 201 (vagy azonos kérés ismétlésekor 200): {order:{number,total,payment}}.
+- Az árakat a szerver a termekek.js katalógusból állapítja meg. A szállítás demóára 1490 Ft, 15000 Ft-tól 0 Ft.
+- A rendelés a demo_orders táblába kerül; vendégként és belépve is leadható, utóbbi esetben a user_id a munkamenetből származik.
+- Csak kitalált tesztadatok használhatók. Nincs valódi fizetés, kiszállítás vagy e-mail küldés.
+- A végleges Spring Boot integrációhoz külön rendelési végpont, hitelesített felhasználói jogosultságok és adatbázis-tranzakciós készletkezelés szükséges.
+- A backend módosítása után indítsd újra a helyi Python demókiszolgálót.

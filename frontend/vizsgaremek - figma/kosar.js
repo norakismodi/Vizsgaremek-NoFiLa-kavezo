@@ -161,6 +161,12 @@ function kosarMegjelenitese() {
     reszosszegElem.textContent = penzFormazas(osszeg);
 
     vegosszegElem.textContent = penzFormazas(osszeg);
+    const penztarGomb = document.querySelector(".penztar-gomb");
+    penztarGomb.disabled = !kosar.length;
+    const szallitas = document.getElementById("kosar-szallitas");
+    const info = document.getElementById("kosar-szallitas-info");
+    szallitas.textContent = !kosar.length ? "–" : osszeg >= 15000 ? "Ingyenes" : penzFormazas(1490);
+    info.textContent = osszeg >= 15000 ? "Elérted az ingyenes szállítást!" : "Még " + penzFormazas(15000-osszeg) + " az ingyenes szállításig." ;
 
     const darab = kosar.reduce(
         (total, termek) => {
@@ -175,3 +181,5 @@ function kosarMegjelenitese() {
 }
 
 kosarMegjelenitese();
+
+document.querySelector(".penztar-gomb").addEventListener("click", () => { if (kosar.length) location.href = "penztar.html"; });

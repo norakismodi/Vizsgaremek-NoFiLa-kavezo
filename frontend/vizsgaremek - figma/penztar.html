@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pénztár – Cozy Cup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="elso">
+        <p>INGYENES SZÁLLÍTÁS 15 000 FT-TÓL</p>
+    </div>
+
+     <header class="header">
+
+        <a class="logo" href="home.html" aria-label="Cozy Cup – Főoldal">
+            <span class="logoikon">☕</span>
+            <span class="logotext">COZY CUP</span>
+        </a>
+
+        <nav class="menu">
+            <a href="home.html">FŐOLDAL</a>
+            <a href="kavek.html">KÁVÉK</a>
+            <a href="matchashop.html">MATCHA</a>
+            <a href="kakao.html">KAKAÓ</a>
+            <a href="kiegeszitok.html">KIEGÉSZÍTŐK</a>
+            <a href="receptek.html">RECEPTEK</a>
+            <a href="rolunk.html">RÓLUNK</a>
+        </nav>
+
+        <div class="ikonok">
+            <button type="button" id="globalis-kereso-gomb" class="ikon" aria-label="Termékkereső" aria-expanded="false" aria-controls="globalis-kereso">⌕</button>
+            <a href="fiok.html" id="fiok-ikon" class="ikon" aria-label="Bejelentkezés / regisztráció" title="Fiókom"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg></a>
+            <a href="kosar.html" class="ikon kosar-ikon" aria-label="Kosár">
+                🛒
+                <span id="kosar-szam">0</span>
+            </a>
+        </div>
+     </header>
+
+    <main class="penztar-oldal">
+        <nav class="termek-utvonal" aria-label="Navigációs útvonal"><a href="home.html">Főoldal</a> / <a href="kosar.html">Kosár</a> / Pénztár</nav>
+        <h1>Pénztár</h1>
+        <p class="penztar-bevezeto">Már csak néhány lépés, és kész a rendelésed.</p>
+        <p class="penztar-demo">Vizsgaremek – tesztüzem. Kizárólag kitalált adatokat használj. Nem történik valódi fizetés vagy kiszállítás.</p>
+        <div id="penztar-ures" class="penztar-doboz" hidden><h2>A kosarad üres</h2><a href="home.html">Vissza a vásárláshoz →</a></div>
+        <div id="penztar-tartalom" class="penztar-racs" hidden>
+            <form id="penztar-urlap" class="penztar-doboz">
+                <h2>1. Kapcsolattartási adatok</h2>
+                <p id="penztar-fiok-info">Vendégként is rendelhetsz. <a href="fiok.html">Bejelentkezés</a></p>
+                <div class="penztar-mezok">
+                    <label>Vezetéknév<input name="lastname" autocomplete="family-name" required maxlength="80"></label>
+                    <label>Keresztnév<input name="firstname" autocomplete="given-name" required maxlength="80"></label>
+                    <label>E-mail-cím<input type="email" name="email" autocomplete="email" required maxlength="254"></label>
+                    <label>Telefonszám<input type="tel" name="phone" autocomplete="tel" required maxlength="30" minlength="6"></label>
+                </div>
+                <h2>2. Szállítási adatok</h2>
+                <div class="penztar-mezok">
+                    <label>Irányítószám<input name="zip" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required></label>
+                    <label>Város<input name="city" autocomplete="address-level2" required maxlength="100"></label>
+                    <label class="penztar-teljes">Utca, házszám<input name="street" autocomplete="street-address" required maxlength="200"></label>
+                    <label class="penztar-teljes">Megjegyzés (opcionális)<textarea name="note" rows="3" maxlength="500"></textarea></label>
+                </div>
+                <p class="penztar-apro">Szállítási terület: Magyarország. A demó szállítási díja 1 490 Ft, 15 000 Ft-tól ingyenes.</p>
+                <h2>3. Fizetési mód</h2>
+                <label class="penztar-radio"><input type="radio" name="payment" value="cod" checked> <span><strong>Utánvét (demó)</strong><small>Fizetés átvételkor – szimuláció.</small></span></label>
+                <label class="penztar-radio"><input type="radio" name="payment" value="card_demo"> <span><strong>Bankkártya (demó)</strong><small>Csak szimuláció, nem kérünk kártyaadatokat.</small></span></label>
+                <label class="penztar-radio"><input type="checkbox" name="demo_ack" required> <span>Tudomásul veszem, hogy ez tesztrendelés, és nem jár valódi vásárlással.</span></label>
+                <button type="submit" id="rendeles-gomb" class="fiok-gomb">TESZTRENDELÉS LEADÁSA</button>
+                <p id="penztar-uzenet" class="fiok-uzenet" role="status" aria-live="polite" hidden></p>
+            </form>
+            <aside class="penztar-doboz penztar-osszesito">
+                <h2>Rendelés összesítése</h2>
+                <div id="penztar-termekek"></div>
+                <div class="osszesito-sor"><span>Részösszeg</span><strong id="penztar-reszosszeg"></strong></div>
+                <div class="osszesito-sor"><span>Szállítás</span><strong id="penztar-szallitas"></strong></div>
+                <p id="penztar-szallitas-info" class="szallitas-info"></p>
+                <hr>
+                <div class="osszesito-sor vegosszeg"><span>Végösszeg</span><strong id="penztar-vegosszeg"></strong></div>
+                <a href="kosar.html" class="vasarlas-folytatasa">← Kosár módosítása</a>
+            </aside>
+        </div>
+        <section id="penztar-siker" class="penztar-doboz penztar-siker" hidden>
+            <span aria-hidden="true" class="penztar-pipa">✓</span><h2>Sikeres tesztrendelés!</h2>
+            <p>A rendelésedet a helyi demóadatbázisban rögzítettük.</p>
+            <p>Rendelésszám: <strong id="rendeles-szam"></strong></p>
+            <p>Végösszeg: <strong id="rendeles-osszeg"></strong></p>
+            <p>Fizetési mód: <strong id="rendeles-fizetes"></strong></p>
+            <p class="penztar-apro">Nem történt fizetés, kiszállítás vagy e-mail küldés.</p>
+            <a href="home.html" class="fiok-gomb">VISSZA A FŐOLDALRA</a>
+        </section>
+    </main>
+      <footer class="footer">
+
+        <div class="footer-elem">
+            <span class="footer-ikon">🚚</span>
+            <div class="footer-szoveg">
+                <h3>Gyors szállítás</h3>
+                <p>1-2 munkanap</p>
+            </div>
+        </div>
+
+        <div class="footer-elem">
+            <span class="footer-ikon">🛡</span>
+            <div class="footer-szoveg">
+                <h3>Biztonságos fizetés</h3>
+                <p>Bankkártya, utánvét</p>
+            </div>
+        </div>
+
+        <div class="footer-elem">
+            <span class="footer-ikon">☕</span>
+            <div class="footer-szoveg">
+                <h3>Minőségi termékek</h3>
+                <p>Válogatott prémium termékek</p>
+            </div>
+        </div>
+
+        <div class="footer-elem">
+            <span class="footer-ikon">🎁</span>
+            <div class="footer-szoveg">
+                <h3>Rendszeres akciók</h3>
+                <p>Iratkozz fel a hírlevelünkre</p>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="termekek.js"></script>
+    <script src="kereso.js"></script>
+    <script src="fiok.js"></script>
+    <script src="kosar-kozos.js"></script>
+    <script src="penztar.js"></script>
+</body>
+</html>
