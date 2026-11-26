@@ -4,6 +4,7 @@ const CozyTermekek = {
 
     {
         id: 101,
+        ajanlas: "Klasszikus reggeli kávéhoz vagy tejes italok alapjaként is kipróbálhatod.",
         nev: "Klasszikus kávépor",
         ar: 2690,
         kep: "kavek/klasszikuskave.png",
@@ -12,6 +13,7 @@ const CozyTermekek = {
 
     {
         id: 102,
+        ajanlas: "A vaníliás íz jól illik egy habos lattéhoz vagy jeges tejes kávéhoz.",
         nev: "Vaníliás kávépor",
         ar: 2890,
         kep: "kavek/vaniliaskave.png",
@@ -20,6 +22,7 @@ const CozyTermekek = {
 
     {
         id: 103,
+        ajanlas: "Próbáld ki tejhabbal vagy egy mogyorós desszert mellé.",
         nev: "Mogyorós kávépor",
         ar: 2990,
         kep: "kavek/mogyoroskave.png",
@@ -28,6 +31,7 @@ const CozyTermekek = {
 
     {
         id: 104,
+        ajanlas: "Karamellás latte vagy jegeskávé készítéséhez is jó választás.",
         nev: "Karamellás kávépor",
         ar: 2990,
         kep: "kavek/karamellaskave.png",
@@ -36,6 +40,7 @@ const CozyTermekek = {
 
     {
         id: 105,
+        ajanlas: "Tejjel és egy kevés fahéjjal hangulatos, fűszeres kávéital készülhet belőle.",
         nev: "Fahéjas kávépor",
         ar: 2890,
         kep: "kavek/fahejaskave.png",
@@ -44,6 +49,7 @@ const CozyTermekek = {
 
     {
         id: 106,
+        ajanlas: "Desszert jellegű tejes kávéhoz ajánljuk.",
         nev: "Ír krémes kávépor",
         ar: 3190,
         kep: "kavek/irkremeskave.png",
@@ -52,6 +58,7 @@ const CozyTermekek = {
 
     {
         id: 107,
+        ajanlas: "Ha a határozott kávéízt kedveled, önmagában vagy tejjel is kipróbálhatod.",
         nev: "Erős pörkölésű kávépor",
         ar: 2790,
         kep: "kavek/erosporkolesukave.png",
@@ -60,6 +67,7 @@ const CozyTermekek = {
 
     {
         id: 108,
+        ajanlas: "A klasszikus kávéíz kedvelőinek, akik koffeinmentes változatot keresnek.",
         nev: "Koffeinmentes kávépor",
         ar: 2990,
         kep: "kavek/koffeinmenteskave.png",
@@ -68,6 +76,7 @@ const CozyTermekek = {
 
     {
         id: 109,
+        ajanlas: "Tejjel és kakaós ízekkel kombinálva mokkás latte alapja lehet.",
         nev: "Mokkás kávépor",
         ar: 3190,
         kep: "kavek/mokkaskave.png",
@@ -76,6 +85,7 @@ const CozyTermekek = {
 
     {
         id: 110,
+        ajanlas: "Különösen jól illik a mézeskalácsos desszertek és tejes italok mellé.",
         nev: "Mézeskalácsos kávépor",
         ar: 3190,
         kep: "kavek/mezeskalacskave.png",
@@ -84,6 +94,7 @@ const CozyTermekek = {
 
     {
         id: 111,
+        ajanlas: "Kókuszos latte vagy jeges tejes kávé alapjaként is kipróbálható.",
         nev: "Kókuszos kávépor",
         ar: 3090,
         kep: "kavek/kokuszoskave.png",
@@ -92,6 +103,7 @@ const CozyTermekek = {
 
     {
         id: 112,
+        ajanlas: "A pisztáciás íz jól párosítható tejhabbal és desszertekkel.",
         nev: "Pisztáciás kávépor",
         ar: 3390,
         kep: "kavek/pisztaciaskave.png",
@@ -100,6 +112,7 @@ const CozyTermekek = {
 
     {
         id: 113,
+        ajanlas: "Tejes kávékhoz, különösen fehércsokoládés lattéhoz ajánljuk.",
         nev: "Fehércsokoládés kávépor",
         ar: 3290,
         kep: "kavek/fehercsokiskave.png",
@@ -108,6 +121,7 @@ const CozyTermekek = {
 
     {
         id: 114,
+        ajanlas: "A sós-édes ízvilág jól illik egy krémes jegeskávéhoz.",
         nev: "Sós karamellás kávépor",
         ar: 3290,
         kep: "kavek/soskaramellaskave.png",
@@ -116,6 +130,7 @@ const CozyTermekek = {
 
     {
         id: 115,
+        ajanlas: "Mandulás desszertek mellé vagy tejes kávékhoz is kipróbálható.",
         nev: "Mandulás kávépor",
         ar: 3090,
         kep: "kavek/mandulaskave.png",
@@ -124,6 +139,7 @@ const CozyTermekek = {
 
     {
         id: 116,
+        ajanlas: "A citrusos ízek kedvelőinek, akár jeges változatban is.",
         nev: "Narancsos kávépor",
         ar: 3090,
         kep: "kavek/narancsoskave.png",
@@ -132,6 +148,7 @@ const CozyTermekek = {
 
     {
         id: 117,
+        ajanlas: "Málnás tejes kávé vagy gyümölcsös desszert mellé ajánljuk.",
         nev: "Málnás kávépor",
         ar: 3190,
         kep: "kavek/malnaskave.png",
@@ -140,6 +157,7 @@ const CozyTermekek = {
 
     {
         id: 118,
+        ajanlas: "A chai jellegű fűszeres íz tejjel is jól párosítható.",
         nev: "Fűszeres chai kávépor",
         ar: 3290,
         kep: "kavek/fuszereschaikave.png",
@@ -150,6 +168,7 @@ const CozyTermekek = {
     kakaoTermekek: [
     {
         id: 201,
+        ajanlas: "Meleg vagy hideg kakaóitalhoz, illetve kakaós desszertek ízesítéséhez is kipróbálható.",
         nev: "Klasszikus kakaópor",
         ar: 2490,
         kep: "kako/klasszikuskakaopor.png",
@@ -157,6 +176,7 @@ const CozyTermekek = {
     },
     {
         id: 202,
+        ajanlas: "Vaníliás tejes kakaóhoz vagy desszertitalokhoz ajánljuk.",
         nev: "Vaníliás kakaópor",
         ar: 2690,
         kep: "kako/vaniliaskakaopor.png",
@@ -164,6 +184,7 @@ const CozyTermekek = {
     },
     {
         id: 203,
+        ajanlas: "Mogyorós desszertek mellé vagy habos kakaóitalhoz is jó választás.",
         nev: "Mogyorós kakaópor",
         ar: 2790,
         kep: "kako/mogyoroskakaopor.png",
@@ -171,6 +192,7 @@ const CozyTermekek = {
     },
     {
         id: 204,
+        ajanlas: "Tejjel kombinálva karamellás desszertital alapja lehet.",
         nev: "Karamellás kakaópor",
         ar: 2790,
         kep: "kako/karamellaskakaopor.png",
@@ -178,6 +200,7 @@ const CozyTermekek = {
     },
     {
         id: 205,
+        ajanlas: "Egy fűszeres, meleg kakaóhoz vagy fahéjas desszert mellé ajánljuk.",
         nev: "Fahéjas kakaópor",
         ar: 2690,
         kep: "kako/fahejaskakaopor.png",
@@ -185,6 +208,7 @@ const CozyTermekek = {
     },
     {
         id: 206,
+        ajanlas: "Krémes jellegű tejes kakaóhoz, desszertitalokhoz is kipróbálható.",
         nev: "Ír krémes kakaópor",
         ar: 2890,
         kep: "kako/irkremeskakaopor.png",
@@ -192,6 +216,7 @@ const CozyTermekek = {
     },
     {
         id: 207,
+        ajanlas: "Az intenzív csokoládés íz kedvelőinek, meleg vagy hideg kakaóhoz.",
         nev: "Étcsokoládés kakaópor",
         ar: 2890,
         kep: "kako/etcsokoladeskakaopor.png",
@@ -199,6 +224,7 @@ const CozyTermekek = {
     },
     {
         id: 208,
+        ajanlas: "Fehércsokoládés ízvilágú tejes italok és desszertek mellé ajánljuk.",
         nev: "Fehércsokoládés kakaópor",
         ar: 2990,
         kep: "kako/fehercsokoladeskakaopor.png",
@@ -206,6 +232,7 @@ const CozyTermekek = {
     },
     {
         id: 209,
+        ajanlas: "A karamellás és enyhén sós ízek kedvelőinek, habos kakaóhoz.",
         nev: "Sós karamellás kakaópor",
         ar: 2990,
         kep: "kako/soskaramellaskakaopor.png",
@@ -213,6 +240,7 @@ const CozyTermekek = {
     },
     {
         id: 210,
+        ajanlas: "Málnás desszertekhez vagy gyümölcsös jellegű kakaóitalhoz illik.",
         nev: "Málnás kakaópor",
         ar: 2890,
         kep: "kako/malnaskakaopor.png",
@@ -220,6 +248,7 @@ const CozyTermekek = {
     },
     {
         id: 211,
+        ajanlas: "Narancsos-csokoládés ízpárosításhoz ajánljuk.",
         nev: "Narancsos kakaópor",
         ar: 2790,
         kep: "kako/narancsoskakaopor.png",
@@ -227,6 +256,7 @@ const CozyTermekek = {
     },
     {
         id: 212,
+        ajanlas: "Kókuszos tejes italokhoz és desszertek mellé is kipróbálható.",
         nev: "Kókuszos kakaópor",
         ar: 2890,
         kep: "kako/kokuszoskakaopor.png",
@@ -234,6 +264,7 @@ const CozyTermekek = {
     },
     {
         id: 213,
+        ajanlas: "Pisztáciás desszert mellé vagy krémes kakaóitalhoz ajánljuk.",
         nev: "Pisztáciás kakaópor",
         ar: 3190,
         kep: "kako/pisztaciaskakaopor.png",
@@ -241,6 +272,7 @@ const CozyTermekek = {
     },
     {
         id: 214,
+        ajanlas: "Mézeskalács és más fűszeres sütemények mellé is illik.",
         nev: "Mézeskalácsos kakaópor",
         ar: 2990,
         kep: "kako/mezeskalacsoskakaopor.png",
@@ -248,6 +280,7 @@ const CozyTermekek = {
     },
     {
         id: 215,
+        ajanlas: "Mandulás ízvilágú tejes kakaóhoz ajánljuk.",
         nev: "Mandulás kakaópor",
         ar: 2890,
         kep: "kako/mandulaskakaopor.png",
@@ -255,6 +288,7 @@ const CozyTermekek = {
     },
     {
         id: 216,
+        ajanlas: "A gyümölcsös és fehércsokoládés ízeket kedvelőknek.",
         nev: "Fehércsokoládés-málnás kakaópor",
         ar: 3290,
         kep: "kako/fehercsokoladeskakaopor (2).png",
@@ -262,6 +296,7 @@ const CozyTermekek = {
     },
     {
         id: 217,
+        ajanlas: "Brownie mellé vagy süteményes jellegű desszertitalhoz ajánljuk.",
         nev: "Brownie ízű kakaópor",
         ar: 3190,
         kep: "kako/browniekakaopor.png",
@@ -269,6 +304,7 @@ const CozyTermekek = {
     },
     {
         id: 218,
+        ajanlas: "Marcipános desszertek mellé vagy különleges tejes kakaóhoz.",
         nev: "Marcipános kakaópor",
         ar: 3090,
         kep: "kako/marcipanoskakaopor.png",
@@ -278,6 +314,7 @@ const CozyTermekek = {
     matchaTermekek: [
     {
         id: 1,
+        ajanlas: "Jeges epres matcha lattéhoz is kipróbálható; a Receptek oldalon ötletet is találsz hozzá.",
         nev: "Epres Matcha",
         ar: 3590,
         kep: "matchak/epresmatchapor.png",
@@ -285,6 +322,7 @@ const CozyTermekek = {
     },
     {
         id: 2,
+        ajanlas: "Vaníliás matcha latte készítéséhez vagy önmagában is kipróbálható.",
         nev: "Vaníliás Matcha",
         ar: 3490,
         kep: "matchak/vaniliasmatchapor.png",
@@ -292,6 +330,7 @@ const CozyTermekek = {
     },
     {
         id: 3,
+        ajanlas: "Hagyományos matcha italhoz vagy tejes matcha lattéhoz is használható.",
         nev: "Original Matcha",
         ar: 3290,
         kep: "matchak/originalmatchapor.png",
@@ -299,6 +338,7 @@ const CozyTermekek = {
     },
     {
         id: 4,
+        ajanlas: "Jeges, gyümölcsös matcha italokhoz ajánljuk.",
         nev: "Málnás Matcha",
         ar: 3590,
         kep: "matchak/malnasmatchapor.png",
@@ -306,6 +346,7 @@ const CozyTermekek = {
     },
     {
         id: 5,
+        ajanlas: "Áfonyás matcha latte vagy gyümölcsös desszert mellé is illik.",
         nev: "Áfonyás Matcha",
         ar: 3690,
         kep: "matchak/afonyasmatchapor.png",
@@ -313,6 +354,7 @@ const CozyTermekek = {
     },
     {
         id: 6,
+        ajanlas: "Frissítő, citrusos jeges matcha italhoz ajánljuk.",
         nev: "Citromos Matcha",
         ar: 3490,
         kep: "matchak/citromosmatchapor.png",
@@ -320,6 +362,7 @@ const CozyTermekek = {
     },
     {
         id: 7,
+        ajanlas: "Mangós, trópusi hangulatú matcha lattéhoz is kipróbálható.",
         nev: "Mangós Matcha",
         ar: 3690,
         kep: "matchak/mangosmatchapor.png",
@@ -327,6 +370,7 @@ const CozyTermekek = {
     },
     {
         id: 8,
+        ajanlas: "Kókuszos tejitalokkal kombinálva különleges matcha latte készülhet belőle.",
         nev: "Kókuszos Matcha",
         ar: 3590,
         kep: "matchak/kokuszosmatchapor.png",
@@ -334,6 +378,7 @@ const CozyTermekek = {
     },
     {
         id: 9,
+        ajanlas: "Mentás jeges matcha italhoz vagy önmagában is kipróbálható.",
         nev: "Mentás Matcha",
         ar: 3490,
         kep: "matchak/mentasmatchapor.png",
@@ -341,6 +386,7 @@ const CozyTermekek = {
     },
     {
         id: 10,
+        ajanlas: "Karamellás tejes matcha latte alapjaként ajánljuk.",
         nev: "Karamellás Matcha",
         ar: 3690,
         kep: "matchak/karamellasmatchapor.png",
@@ -348,6 +394,7 @@ const CozyTermekek = {
     },
     {
         id: 11,
+        ajanlas: "Csokoládés jellegű matcha latte vagy desszert mellé is illik.",
         nev: "Csokoládés Matcha",
         ar: 3690,
         kep: "matchak/csokoladesmatchapor.png",
@@ -355,6 +402,7 @@ const CozyTermekek = {
     },
     {
         id: 12,
+        ajanlas: "Pisztáciás tejes matcha italhoz és desszertek mellé ajánljuk.",
         nev: "Pisztáciás Matcha",
         ar: 3890,
         kep: "matchak/pisztaciasmatchapor.png",
@@ -364,6 +412,7 @@ const CozyTermekek = {
     kiegeszitoTermekek: [
     {
         id: 301,
+        ajanlas: "Mindennapi kávé, tea vagy kakaó tálalásához használható.",
         nev: "Kerámiabögre",
         ar: 2490,
         kep: "kiegeszitok/keramiabogre.webp",
@@ -371,6 +420,7 @@ const CozyTermekek = {
     },
     {
         id: 302,
+        ajanlas: "Az átlátszó falon a réteges latte is jól látható.",
         nev: "Üvegbögre",
         ar: 1690,
         kep: "kiegeszitok/uvegbogre.webp",
@@ -378,6 +428,7 @@ const CozyTermekek = {
     },
     {
         id: 303,
+        ajanlas: "Réteges kávék, matcha latte és más italok tálalásához ajánljuk.",
         nev: "Dupla falú üvegpohár",
         ar: 2990,
         kep: "kiegeszitok/duplafalupohar.webp",
@@ -385,6 +436,7 @@ const CozyTermekek = {
     },
     {
         id: 304,
+        ajanlas: "Praktikus választás, ha magaddal vinnéd a kedvenc italodat.",
         nev: "Termoszbögre",
         ar: 5990,
         kep: "kiegeszitok/termoszbogre.webp",
@@ -392,6 +444,7 @@ const CozyTermekek = {
     },
     {
         id: 305,
+        ajanlas: "Jeges kávé és hideg matcha italok tálalásához ajánljuk.",
         nev: "Szívószálas üvegpohár",
         ar: 3490,
         kep: "kiegeszitok/szivoszalaspohar.webp",
@@ -399,6 +452,7 @@ const CozyTermekek = {
     },
     {
         id: 306,
+        ajanlas: "A por és a víz összekeverésére, a matcha habosítására szolgál.",
         nev: "Bambusz matcha habverő",
         ar: 5490,
         kep: "kiegeszitok/bambuszhabvero.webp",
@@ -406,6 +460,7 @@ const CozyTermekek = {
     },
     {
         id: 307,
+        ajanlas: "Széles formája helyet biztosít a matcha habverővel történő keveréséhez.",
         nev: "Kerámia matcha tál",
         ar: 6490,
         kep: "kiegeszitok/matchatal.webp",
@@ -413,6 +468,7 @@ const CozyTermekek = {
     },
     {
         id: 308,
+        ajanlas: "A matcha habverő rendezett tárolásához ajánljuk.",
         nev: "Kerámia habverőtartó",
         ar: 2890,
         kep: "kiegeszitok/habverotarto.webp",
@@ -420,6 +476,7 @@ const CozyTermekek = {
     },
     {
         id: 309,
+        ajanlas: "A matchapor kis adagokban történő kiméréséhez használható.",
         nev: "Bambusz adagolókanál",
         ar: 1490,
         kep: "kiegeszitok/bambuszkanal.webp",
@@ -427,6 +484,7 @@ const CozyTermekek = {
     },
     {
         id: 310,
+        ajanlas: "Az átszitálás segíthet a matchapor csomóinak fellazításában.",
         nev: "Matcha szűrő",
         ar: 1990,
         kep: "kiegeszitok/matchaszuro.webp",
@@ -434,6 +492,7 @@ const CozyTermekek = {
     },
     {
         id: 311,
+        ajanlas: "Latte, cappuccino vagy matcha ital tejhabjához használható.",
         nev: "Elektromos tejhabosító",
         ar: 3990,
         kep: "kiegeszitok/tejhabosito.webp",
@@ -441,6 +500,7 @@ const CozyTermekek = {
     },
     {
         id: 312,
+        ajanlas: "Tej és tejhab adagolásához, latte készítéséhez ajánljuk.",
         nev: "Rozsdamentes tejkiöntő",
         ar: 3490,
         kep: "kiegeszitok/tejkionto.webp",
@@ -448,6 +508,7 @@ const CozyTermekek = {
     },
     {
         id: 313,
+        ajanlas: "A porok kényelmes kiméréséhez használható.",
         nev: "Rozsdamentes mérőkanál",
         ar: 1290,
         kep: "kiegeszitok/merokanal.webp",
@@ -455,6 +516,7 @@ const CozyTermekek = {
     },
     {
         id: 314,
+        ajanlas: "Szemes kávé kézi őrléséhez ajánljuk.",
         nev: "Kézi kávédaráló",
         ar: 8990,
         kep: "kiegeszitok/kavedaralo.webp",
@@ -462,6 +524,7 @@ const CozyTermekek = {
     },
     {
         id: 315,
+        ajanlas: "A szűrődugattyús kávékészítési mód kedvelőinek.",
         nev: "Francia kávéfőző",
         ar: 5490,
         kep: "kiegeszitok/franciakavefozo.webp",
@@ -469,6 +532,7 @@ const CozyTermekek = {
     },
     {
         id: 316,
+        ajanlas: "Klasszikus kotyogós kávé elkészítéséhez használható.",
         nev: "Kotyogós kávéfőző",
         ar: 6990,
         kep: "kiegeszitok/kotyogos.webp",
@@ -476,6 +540,7 @@ const CozyTermekek = {
     },
     {
         id: 317,
+        ajanlas: "Papírfilterrel, filteres kávé készítéséhez ajánljuk.",
         nev: "Kerámia kávécsepegtető",
         ar: 3990,
         kep: "kiegeszitok/kavecsepegteto.webp",
@@ -483,6 +548,7 @@ const CozyTermekek = {
     },
     {
         id: 318,
+        ajanlas: "A megfelelő méretű, kúpos filtertartóval használható.",
         nev: "Papír kávéfilter",
         ar: 1490,
         kep: "kiegeszitok/papirfilter.webp",
@@ -490,6 +556,7 @@ const CozyTermekek = {
     },
     {
         id: 319,
+        ajanlas: "A kávé vagy tea rendezett tárolásához ajánljuk.",
         nev: "Légmentes tárolódoboz",
         ar: 3990,
         kep: "kiegeszitok/tarolodoboz.webp",
@@ -497,6 +564,7 @@ const CozyTermekek = {
     },
     {
         id: 320,
+        ajanlas: "A pohár alá helyezve segíthet megóvni az asztal felületét.",
         nev: "Parafa poháralátét",
         ar: 690,
         kep: "kiegeszitok/poharalatet.webp",
@@ -504,6 +572,7 @@ const CozyTermekek = {
     },
     {
         id: 321,
+        ajanlas: "Kávé vagy más tejes ital krémesítéséhez ajánljuk.",
         nev: "Kávétejszín",
         ar: 490,
         kep: "kiegeszitok/kavetejszin.webp",
@@ -512,6 +581,7 @@ const CozyTermekek = {
     },
     {
         id: 322,
+        ajanlas: "Habos desszertekhez és a megfelelő elkészítés mellett tejszínhabhoz is használható.",
         nev: "Habtejszín",
         ar: 790,
         kep: "kiegeszitok/habtejszin.webp",
@@ -520,6 +590,7 @@ const CozyTermekek = {
     },
     {
         id: 323,
+        ajanlas: "Növényi alternatíva italok és krémes ételek készítéséhez.",
         nev: "Zabkrém",
         ar: 690,
         kep: "kiegeszitok/zabkrem.webp",
@@ -528,6 +599,7 @@ const CozyTermekek = {
     },
     {
         id: 324,
+        ajanlas: "Kókuszos desszertekhez, italokhoz és krémes fogásokhoz is kipróbálható.",
         nev: "Kókuszkrém",
         ar: 890,
         kep: "kiegeszitok/kokuszkrem.webp",
@@ -536,6 +608,7 @@ const CozyTermekek = {
     },
     {
         id: 325,
+        ajanlas: "A laktózmentes tejalapú alternatívát keresőknek; nem tejmentes.",
         nev: "Laktózmentes tejszín",
         ar: 690,
         kep: "kiegeszitok/laktozmentes-tejszin.webp",
@@ -544,6 +617,7 @@ const CozyTermekek = {
     },
     {
         id: 326,
+        ajanlas: "Mártásokhoz, levesekhez és főtt krémes ételekhez ajánljuk.",
         nev: "Főzőtejszín",
         ar: 590,
         kep: "kiegeszitok/fozotejszin.webp",
@@ -552,6 +626,7 @@ const CozyTermekek = {
     },
     {
         id: 327,
+        ajanlas: "Mandulás ízű krémes fogásokhoz vagy desszertekhez is kipróbálható.",
         nev: "Mandulakrém",
         ar: 790,
         kep: "kiegeszitok/mandulakrem.webp",
@@ -560,6 +635,7 @@ const CozyTermekek = {
     },
     {
         id: 328,
+        ajanlas: "Növényi tejszínhelyettesítő krémes ételekhez és italokhoz.",
         nev: "Szójatejszín",
         ar: 690,
         kep: "kiegeszitok/szojatejszin.webp",
@@ -568,6 +644,7 @@ const CozyTermekek = {
     },
     {
         id: 329,
+        ajanlas: "Semlegesebb ízű alternatíva ételek krémesítéséhez.",
         nev: "Rizskrém",
         ar: 650,
         kep: "kiegeszitok/rizskrem.webp",
@@ -576,6 +653,7 @@ const CozyTermekek = {
     },
     {
         id: 330,
+        ajanlas: "Kesudióalapú krém, desszertekhez és krémes fogásokhoz.",
         nev: "Kesudiókrém",
         ar: 990,
         kep: "kiegeszitok/kesudiokrem.webp",
@@ -584,6 +662,7 @@ const CozyTermekek = {
     },
     {
         id: 331,
+        ajanlas: "Vaníliás ízű tejes kávéhoz és desszertitalokhoz ajánljuk.",
         nev: "Vaníliás kávékrém",
         ar: 790,
         kep: "kiegeszitok/vanilias-kavekrem.webp",
@@ -592,6 +671,7 @@ const CozyTermekek = {
     },
     {
         id: 332,
+        ajanlas: "Karamellás tejes kávé és desszertitalok ízesítéséhez ajánljuk.",
         nev: "Karamellás kávékrém",
         ar: 790,
         kep: "kiegeszitok/karamellas-kavekrem.webp",

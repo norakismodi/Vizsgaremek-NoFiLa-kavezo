@@ -339,53 +339,70 @@ const receptek = [
     }
 ];
 
+// Receptlista és külön megnyitható receptoldalak.
+const receptMain = document.querySelector(".receptek-oldal");
 const receptRacs = document.getElementById("recept-racs");
 const receptDb = document.getElementById("recept-db");
 const kereso = document.getElementById("recept-kereso");
 const gombok = document.querySelectorAll("#recept-kategoriak button");
-let kategoria = "osszes";
-let egyediReceptId = null;
+const listaReszek = [...receptMain.children];
+const reszlet = document.createElement("div");
+reszlet.className = "recept-egyedi";
+reszlet.hidden = true;
+receptMain.append(reszlet);
+const paramKat = new URLSearchParams(location.search).get("kategoria");
+let kategoria = ["suti", "ital"].includes(paramKat) ? paramKat : "osszes";
 
+function elem(tag, osztaly, szoveg) {
+    const e = document.createElement(tag);
+    if (osztaly) e.className = osztaly;
+    if (szoveg !== undefined) e.textContent = szoveg;
+    return e;
+}
+function link(szoveg, href, osztaly) {
+    const a = elem("a", osztaly, szoveg);
+    a.href = href;
+    return a;
+}
+function kep(recept, osztaly) {
+    const img = elem("img", osztaly);
+    img.src = recept.kep;
+    img.alt = recept.nev;
+    return img;
+}
+function katNev(r) {
+    return r.kategoria === "suti" ? "Sütemény" : "Ital";
+}
 function keresheto(szoveg) {
     return szoveg.toLocaleLowerCase("hu-HU").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
-
-function receptekMegjelenitese() {
-    const kulcsszo = keresheto(kereso.value.trim());
-    const talalatok = receptek.filter(r =>
-        (egyediReceptId === null || r.id === egyediReceptId) &&
-        (kategoria === "osszes" || r.kategoria === kategoria) &&
-        keresheto([r.nev, r.rovid, r.kategoria === "suti" ? "süti desszert" : "ital", ...r.hozzavalok.flatMap(c => [c[0], ...c[1]])].join(" ")).includes(kulcsszo)
-    );
-    receptDb.textContent = talalatok.length + " recept";
-    receptRacs.innerHTML = "";
-    if (!talalatok.length) {
-        receptRacs.innerHTML = '<p class="recept-nincs">Nincs találat. Próbálj másik kulcsszót vagy kategóriát!</p>';
-        return;
-    }
-    talalatok.forEach(recept => {
-        const kartya = document.createElement("article");
-        kartya.className = "recept-kartya";
-        kartya.id = recept.id;
-        const hozzavalok = recept.hozzavalok.map(([cim, lista]) =>
-            "<h4>" + cim + "</h4><ul>" + lista.map(t => "<li>" + t + "</li>").join("") + "</ul>"
-        ).join("");
-        const lepesek = recept.elkeszites.map(l => "<li>" + l + "</li>").join("");
-        kartya.innerHTML =
-            '<img class="recept-kep" src="' + recept.kep + '" alt="' + recept.nev + '" loading="lazy">' +
-            '<div class="recept-torzs"><span class="recept-cimke">' + (recept.kategoria === "suti" ? "Sütemény" : "Ital") + '</span>' +
-            '<h3>' + recept.nev + '</h3><p class="recept-rovid">' + recept.rovid + '</p>' +
-            '<details><summary>RECEPT MEGNYITÁSA</summary><div class="recept-reszletek">' +
-            hozzavalok + '<h4>Elkészítés</h4><ol>' + lepesek + '</ol>' +
-            (recept.megjegyzes ? '<p class="recept-megjegyzes"><strong>Tipp / megjegyzés:</strong> ' + recept.megjegyzes + '</p>' : '') +
-            '</div></details></div>';
-        if (egyediReceptId !== null) kartya.querySelector("details").open = true;
-        receptRacs.appendChild(kartya);
-    });
+function receptKartya(r) {
+    const kartya = elem("article", "recept-kartya");
+    const href = "#" + r.id;
+    const kepLink = link("", href, "recept-kep-link");
+    kepLink.setAttribute("aria-label", r.nev + " – recept megnyitása");
+    kepLink.append(kep(r, "recept-kep"));
+    const torzs = elem("div", "recept-torzs");
+    const cim = elem("h3");
+    cim.append(link(r.nev, href, "recept-nev-link"));
+    torzs.append(elem("span", "recept-cimke", katNev(r)), cim, elem("p", "recept-rovid", r.rovid),
+        link("RECEPT MEGNYITÁSA →", href, "recept-megnyitas"));
+    kartya.append(kepLink, torzs);
+    return kartya;
 }
-
-function kategoriaValtas(ujKategoria) {
-    kategoria = ujKategoria;
+function receptekMegjelenitese() {
+    const szavak = keresheto(kereso.value.trim()).split(/\s+/).filter(Boolean);
+    const talalatok = receptek.filter(r => {
+        const szoveg = keresheto([r.nev, r.rovid, r.kategoria === "suti" ? "süti desszert" : "ital",
+            ...r.hozzavalok.flatMap(c => [c[0], ...c[1]])].join(" "));
+        return (kategoria === "osszes" || r.kategoria === kategoria) && szavak.every(szo => szoveg.includes(szo));
+    });
+    receptDb.textContent = talalatok.length + " recept";
+    receptRacs.replaceChildren(...talalatok.map(receptKartya));
+    if (!talalatok.length) receptRacs.append(elem("p", "recept-nincs", "Nincs találat. Próbálj másik kulcsszót vagy kategóriát!"));
+}
+function kategoriaValtas(uj) {
+    kategoria = uj;
     gombok.forEach(gomb => {
         const aktiv = gomb.dataset.kategoria === kategoria;
         gomb.classList.toggle("aktiv", aktiv);
@@ -393,31 +410,98 @@ function kategoriaValtas(ujKategoria) {
     });
     receptekMegjelenitese();
 }
+function receptReszletek(r) {
+    const utvonal = elem("nav", "termek-utvonal");
+    utvonal.setAttribute("aria-label", "Navigációs útvonal");
+    utvonal.append(link("Főoldal", "home.html"), elem("span", "", " / "), link("Receptek", "receptek.html"), elem("span", "", " / " + r.nev));
+    const vissza = link("← Vissza az összes recepthez", "receptek.html", "egyedi-vissza");
+    const hero = elem("article", "recept-reszlet-fej");
+    const kepDoboz = elem("div", "recept-reszlet-kep");
+    kepDoboz.append(kep(r));
+    const bevezeto = elem("div", "recept-reszlet-bevezeto");
+    const nyomtatas = elem("button", "recept-nyomtatas", "Recept nyomtatása");
+    nyomtatas.type = "button";
+    nyomtatas.addEventListener("click", () => window.print());
+    bevezeto.append(elem("p", "recept-cimke", katNev(r)), elem("h1", "", r.nev),
+        elem("p", "recept-reszlet-rovid", r.rovid), nyomtatas);
+    hero.append(kepDoboz, bevezeto);
 
-gombok.forEach(gomb => gomb.addEventListener("click", () => kategoriaValtas(gomb.dataset.kategoria)));
-kereso.addEventListener("input", receptekMegjelenitese);
+    const tartalom = elem("div", "recept-reszlet-tartalom");
+    const hozzavalok = elem("section", "recept-hozzavalok");
+    const h2 = elem("h2", "", "Hozzávalók");
+    const szamlalo = elem("p", "recept-pipa-szamlalo");
+    szamlalo.setAttribute("role", "status");
+    const pipak = [];
+    const torol = elem("button", "recept-pipa-torol", "Pipák törlése");
+    torol.type = "button";
+    function szamol() {
+        szamlalo.textContent = pipak.filter(p => p.checked).length + " / " + pipak.length + " kipipálva";
+        torol.disabled = !pipak.some(p => p.checked);
+    }
+    hozzavalok.append(h2, elem("p", "recept-pipa-sugo", "Pipáld ki, amit már előkészítettél."), szamlalo);
+    r.hozzavalok.forEach(([cim, lista], i) => {
+        if (r.hozzavalok.length > 1 || cim !== "Hozzávalók") hozzavalok.append(elem("h3", "", cim));
+        const ul = elem("ul", "recept-pipa-lista");
+        lista.forEach((szoveg, j) => {
+            const li = elem("li");
+            const label = elem("label");
+            const input = elem("input");
+            input.type = "checkbox";
+            input.id = "hozzavalo-" + i + "-" + j;
+            label.append(input, elem("span", "", szoveg));
+            input.addEventListener("change", szamol);
+            pipak.push(input);
+            li.append(label);
+            ul.append(li);
+        });
+        hozzavalok.append(ul);
+    });
+    torol.addEventListener("click", () => { pipak.forEach(p => p.checked = false); szamol(); });
+    hozzavalok.append(torol);
+    szamol();
 
-function receptMegnyitasaLinkbol() {
+    const lepesek = elem("section", "recept-elkeszites");
+    const ol = elem("ol", "recept-lepeslista");
+    r.elkeszites.forEach(szoveg => ol.append(elem("li", "", szoveg)));
+    lepesek.append(elem("h2", "", "Elkészítés lépésről lépésre"), ol);
+    if (r.megjegyzes) {
+        const tipp = elem("aside", "recept-tipp");
+        tipp.append(elem("h3", "", "Tipp"), elem("p", "", r.megjegyzes));
+        lepesek.append(tipp);
+    }
+    tartalom.append(hozzavalok, lepesek);
+
+    const ajanlo = elem("section", "recept-ajanlo");
+    const racs = elem("div", "recept-racs recept-ajanlo-racs");
+    const hasonlok = receptek.filter(x => x.id !== r.id && x.kategoria === r.kategoria).slice(0, 3);
+    hasonlok.forEach(x => racs.append(receptKartya(x)));
+    ajanlo.append(elem("h2", "", "További receptek"), racs);
+    reszlet.replaceChildren(utvonal, vissza, hero, tartalom, ajanlo);
+}
+function navigacio(gorget = false) {
     const id = location.hash.slice(1);
     const recept = receptek.find(r => r.id === id);
-    egyediReceptId = recept ? id : null;
-    const main = document.querySelector(".receptek-oldal");
-    const fejlec = main.querySelector(".receptek-vezerlok");
-    main.classList.toggle("egyedi-nezet", Boolean(recept));
-    fejlec.querySelector("h2").textContent = recept ? "Kiválasztott recept" : "Receptjeink";
-    const regiVissza = main.querySelector(".egyedi-vissza");
-    if (regiVissza) regiVissza.remove();
+    const egyedi = !!id;
+    listaReszek.forEach(e => e.hidden = egyedi);
+    reszlet.hidden = !egyedi;
+    receptMain.classList.toggle("recept-reszlet-oldal", egyedi);
     if (recept) {
-        const vissza = document.createElement("a");
-        vissza.className = "egyedi-vissza";
-        vissza.href = "receptek.html";
-        vissza.textContent = "← Vissza az összes recepthez";
-        fejlec.before(vissza);
+        receptReszletek(recept);
+        document.title = recept.nev + " – Cozy Cup";
+    } else if (egyedi) {
+        reszlet.replaceChildren(link("← Vissza az összes recepthez", "receptek.html", "egyedi-vissza"),
+            elem("h1", "", "A keresett recept nem található."));
+        document.title = "Recept nem található – Cozy Cup";
+    } else {
+        reszlet.replaceChildren();
+        document.title = "Receptek – Cozy Cup";
+        receptekMegjelenitese();
     }
-    document.title = recept ? recept.nev + " – Cozy Cup" : "Receptek – Cozy Cup";
-    kereso.value = "";
-    kategoriaValtas("osszes");
+    if (gorget || egyedi) window.scrollTo(0, 0);
 }
-window.addEventListener("hashchange", receptMegnyitasaLinkbol);
-receptMegnyitasaLinkbol();
+gombok.forEach(gomb => gomb.addEventListener("click", () => kategoriaValtas(gomb.dataset.kategoria)));
+kereso.addEventListener("input", receptekMegjelenitese);
+window.addEventListener("hashchange", () => navigacio(true));
+kategoriaValtas(kategoria);
+navigacio();
 document.getElementById("kosar-szam").textContent = CozyKosar.beolvas().reduce((osszeg, t) => osszeg + t.mennyiseg, 0);

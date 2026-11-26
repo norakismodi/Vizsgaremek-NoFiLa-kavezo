@@ -115,7 +115,15 @@ function kosarMegjelenitese() {
 
         kartya.querySelector("img").src = termek.kep;
         kartya.querySelector("img").alt = termek.nev;
-        kartya.querySelector("h3").textContent = termek.nev;
+        const nevCim = kartya.querySelector("h3");
+        const termekUrl = CozyTermekOldal.url(termek);
+        if (termekUrl) {
+            const link = document.createElement("a");
+            link.href = termekUrl;
+            link.className = "kosar-termek-nev-link";
+            link.textContent = termek.nev;
+            nevCim.append(link);
+        } else nevCim.textContent = termek.nev;
 
         kartya.querySelector(".csokkentes")
             .addEventListener("click", () => {

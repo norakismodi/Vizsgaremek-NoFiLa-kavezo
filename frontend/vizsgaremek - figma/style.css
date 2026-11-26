@@ -1781,3 +1781,112 @@ body{
 .fiok-demo { font-size: 13px; color: #684A35; margin: 20px 0 0; line-height: 1.4; }
 .fiok-profil-sor { font-size: 16px; line-height: 1.5; overflow-wrap: anywhere; }
 @media (max-width: 420px) { .fiok-nevek { grid-template-columns: 1fr; gap: 0; } .fiok-valtas button { font-size: 14px; } }
+
+/* Közös termékrészletek és kosár-visszajelzések */
+.termek-kep-link, .termek-nev-link { display: block; color: inherit; text-decoration: none; }
+.termek-nev-link:hover { text-decoration: underline; }
+.termek-kep-link:hover img { outline: 1px solid #C9AC91; }
+.termek-reszlet-link { color: #6B4226; font-size: 14px; font-weight: 600; margin: auto 0 12px; display: block; }
+.termek-jelzes { color: #31552D; font-size: 14px; line-height: 1.5; margin: 12px 0 0; overflow-wrap: anywhere; }
+.termek-jelzes:empty { display: none; }
+.termek-jelzes a, .termek-kosar-link { color: #6B4226; font-weight: 600; }
+.termek-jelzes.termek-hiba { color: #8C2929; }
+.termek-reszlet-oldal { max-width: 1200px; margin: 0 auto; padding: 38px 32px 64px; box-sizing: border-box; }
+.termek-utvonal { font-size: 14px; color: #684A35; line-height: 1.6; margin-bottom: 16px; overflow-wrap: anywhere; }
+.termek-utvonal a { color: #6B4226; }
+.termek-reszlet { background: #F1E6D8; border: 1px solid #E3CFB9; border-radius: 18px; padding: 28px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.termek-reszlet-kep { background: #FFF9F3; border-radius: 14px; padding: 16px; display: flex; justify-content: center; align-items: center; min-width: 0; }
+.termek-reszlet-kep img { display: block; width: 100%; max-width: 440px; aspect-ratio: 1; object-fit: contain; border-radius: 9px; }
+.termek-reszlet-adatok { min-width: 0; }
+.termek-reszlet-kategoria { margin: 0 0 12px; font-size: 13px; color: #80644E; letter-spacing: 1px; font-weight: 700; text-transform: uppercase; }
+.termek-reszlet h1 { font: 600 clamp(28px, 3.5vw, 42px)/1.15 Georgia,serif; margin: 0 0 16px; overflow-wrap: anywhere; }
+.termek-reszlet .termek-ar { font-size: 30px; font-weight: 700; color: #6B4226; margin: 0 0 24px; }
+.termek-reszlet h2 { font-size: 18px; margin: 0 0 8px; }
+.termek-reszlet-leiras { font-size: 16px; line-height: 1.7; margin: 0 0 24px; color: #684A35; }
+.termek-mennyiseg-cim { display: block; font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+.termek-mennyiseg { display: inline-flex; border: 1px solid #C9AC91; border-radius: 8px; overflow: hidden; background: #FFF9F3; }
+.termek-mennyiseg button, .termek-mennyiseg input { border: 0; background: transparent; color: #3B2418; height: 44px; font: inherit; font-weight: 600; }
+.termek-mennyiseg button { width: 44px; cursor: pointer; font-size: 22px; }
+.termek-mennyiseg button:disabled { opacity: .4; cursor: default; }
+.termek-mennyiseg input { text-align: center; width: 60px; border-inline: 1px solid #E3CFB9; appearance: textfield; -moz-appearance: textfield; }
+.termek-mennyiseg input::-webkit-inner-spin-button, .termek-mennyiseg input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.termek-osszeg { font-size: 17px; font-weight: 600; margin: 16px 0; }
+.termek-reszlet-kosar { background: #6B4226; color: #FFF9F3; width: 100%; padding: 15px; border: 0; border-radius: 8px; font: inherit; font-weight: 700; cursor: pointer; }
+.termek-reszlet-kosar:hover { background: #3B2418; }
+.termek-kosar-link { display: inline-block; margin-top: 16px; font-size: 15px; }
+.termek-ajanlo { margin-top: 40px; }
+.termek-ajanlo h2 { font: 600 28px Georgia,serif; margin-bottom: 18px; }
+.termek-ajanlo-racs { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.termek-ajanlo-racs article { max-width: none; }
+.kosar-termek-nev-link { color: inherit; text-decoration: none; }
+.kosar-termek-nev-link:hover { text-decoration: underline; }
+@media (max-width: 700px) {
+    .termek-reszlet-oldal { padding: 24px 16px 40px; }
+    .termek-reszlet { grid-template-columns: minmax(0,1fr); gap: 24px; padding: 16px; }
+    .termek-reszlet-kep { padding: 10px; }
+    .termek-reszlet-kep img { max-width: 330px; }
+    .termek-ajanlo-racs { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+}
+@media (max-width: 450px) { .termek-ajanlo-racs { grid-template-columns: minmax(0,1fr); } }
+
+/* Receptek – önálló, jól olvasható receptoldalak */
+.receptek-oldal [hidden] { display: none !important; }
+.recept-kartya { display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
+.recept-kep-link, .recept-nev-link { display: block; color: inherit; text-decoration: none; }
+.recept-nev-link:hover { text-decoration: underline; }
+.recept-kep-link:hover .recept-kep { filter: brightness(.96); }
+.recept-kep { aspect-ratio: 1; object-fit: cover; }
+.recept-torzs { display: flex; flex-direction: column; flex: 1; }
+.recept-cimke { font-size: 13px; color: #806044; }
+.recept-rovid { font-size: 15px; line-height: 1.6; color: #684A35; min-height: 0; }
+.recept-megnyitas { display: block; text-align: center; background: #6B4226; color: #FFF9F3; text-decoration: none; font-size: 14px; font-weight: 700; border-radius: 8px; padding: 13px 10px; margin-top: auto; }
+.recept-megnyitas:hover { background: #3B2418; }
+.recept-kategoriak button, .recept-kereso-cimke { font-size: 15px; }
+#recept-kereso { font-size: 16px; }
+.recept-reszlet-oldal { max-width: 1200px; box-sizing: border-box; padding: 38px 32px 64px; margin: 0 auto; }
+.recept-reszlet-fej { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: 32px; padding: 28px; background: #F1E6D8; border: 1px solid #E3CFB9; border-radius: 18px; }
+.recept-reszlet-kep { min-width: 0; background: #FFF9F3; border-radius: 14px; padding: 12px; }
+.recept-reszlet-kep img { display: block; width: 100%; max-width: 420px; aspect-ratio: 1; object-fit: contain; margin: auto; border-radius: 9px; }
+.recept-reszlet-bevezeto { min-width: 0; }
+.recept-reszlet-bevezeto h1 { font: 600 clamp(30px, 4vw, 48px)/1.15 Georgia, serif; margin: 10px 0 18px; overflow-wrap: anywhere; }
+.recept-reszlet-rovid { color: #684A35; font-size: 18px; line-height: 1.7; margin: 0 0 22px; }
+.recept-nyomtatas, .recept-pipa-torol { padding: 11px 16px; border: 1px solid #C9AC91; border-radius: 8px; background: #FFF9F3; color: #6B4226; font: inherit; font-weight: 600; cursor: pointer; }
+.recept-nyomtatas:hover, .recept-pipa-torol:hover { background: #E3CFB9; }
+.recept-pipa-torol:disabled { opacity: .5; cursor: default; }
+.recept-reszlet-tartalom { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: start; gap: 24px; margin-top: 24px; }
+.recept-hozzavalok, .recept-elkeszites { background: #F1E6D8; border: 1px solid #E3CFB9; border-radius: 16px; padding: 24px; min-width: 0; }
+.recept-reszlet-tartalom h2, .recept-ajanlo h2 { font: 600 28px/1.2 Georgia, serif; margin: 0 0 18px; }
+.recept-reszlet-tartalom h3 { font-size: 18px; margin: 20px 0 10px; }
+.recept-pipa-sugo, .recept-pipa-szamlalo { font-size: 14px; color: #684A35; line-height: 1.5; }
+.recept-pipa-szamlalo { font-weight: 600; }
+.recept-pipa-lista { margin: 0 0 18px; padding: 0; list-style: none; }
+.recept-pipa-lista li { border-bottom: 1px solid #E3CFB9; }
+.recept-pipa-lista label { display: flex; gap: 10px; align-items: flex-start; padding: 12px 0; cursor: pointer; font-size: 16px; line-height: 1.5; }
+.recept-pipa-lista input { flex: 0 0 auto; width: 19px; height: 19px; margin: 2px 0 0; accent-color: #6B4226; }
+.recept-pipa-lista input:checked + span { text-decoration: line-through; color: #80644E; }
+.recept-lepeslista { list-style: none; counter-reset: receptlepes; padding: 0; margin: 0; }
+.recept-lepeslista li { counter-increment: receptlepes; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; font-size: 16px; line-height: 1.7; margin-bottom: 18px; align-items: start; }
+.recept-lepeslista li::before { content: counter(receptlepes); display: grid; place-items: center; width: 32px; height: 32px; background: #6B4226; color: #FFF9F3; border-radius: 50%; font-weight: 700; font-size: 15px; }
+.recept-tipp { padding: 16px; background: #FFF9F3; border-left: 3px solid #9A6540; border-radius: 8px; }
+.recept-tipp h3 { margin: 0 0 8px; }
+.recept-tipp p { margin: 0; font-size: 15px; line-height: 1.6; }
+.recept-ajanlo { margin-top: 36px; }
+.recept-ajanlo-racs { grid-template-columns: repeat(3,minmax(0,1fr)); }
+@media (max-width: 760px) {
+    .recept-reszlet-oldal { padding: 24px 16px 40px; }
+    .recept-reszlet-fej, .recept-reszlet-tartalom { grid-template-columns: minmax(0,1fr); gap: 18px; }
+    .recept-reszlet-fej, .recept-hozzavalok, .recept-elkeszites { padding: 16px; }
+    .recept-ajanlo-racs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 450px) { .recept-ajanlo-racs { grid-template-columns: minmax(0,1fr); } }
+@media print {
+    body:has(.recept-reszlet-oldal) .header, body:has(.recept-reszlet-oldal) .elso, body:has(.recept-reszlet-oldal) .footer,
+    .recept-egyedi .termek-utvonal, .recept-egyedi .egyedi-vissza, .recept-nyomtatas, .recept-pipa-torol, .recept-pipa-sugo, .recept-pipa-szamlalo, .recept-ajanlo { display: none !important; }
+    .recept-reszlet-oldal { padding: 0; max-width: none; }
+    .recept-reszlet-fej { grid-template-columns: 130px 1fr; gap: 16px; }
+    .recept-reszlet-fej, .recept-hozzavalok, .recept-elkeszites { background: white; border: 0; padding: 8px; }
+    .recept-reszlet-tartalom { display: block; }
+    .recept-lepeslista li, .recept-pipa-lista li { break-inside: avoid; }
+    .recept-pipa-lista input:checked + span { text-decoration: none; color: inherit; }
+    .recept-lepeslista li::before { color: black; background: white; border: 1px solid black; }
+}
