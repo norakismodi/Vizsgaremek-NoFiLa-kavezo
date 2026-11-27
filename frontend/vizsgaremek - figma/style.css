@@ -1921,3 +1921,34 @@ body{
 #rendeles-gomb:disabled,.penztar-gomb:disabled { opacity:.55; cursor:not-allowed; }
 @media(max-width:780px){.penztar-oldal{padding:24px 16px 40px}.penztar-racs{grid-template-columns:minmax(0,1fr)}.penztar-osszesito{grid-row:1}.penztar-doboz{padding:16px}}
 @media(max-width:420px){.penztar-mezok{grid-template-columns:minmax(0,1fr)}}
+
+/* Kedvencek – közös szív gomb, fejléc és kívánságlista */
+#kedvenc-ikon { position:relative; flex:0 0 30px; border-radius:6px; }
+#kedvenc-ikon:hover { background:#E3CFB9; }
+#kedvenc-szam { position:absolute; right:-5px; top:-5px; min-width:16px; height:16px; padding:0 3px; box-sizing:border-box; border-radius:10px; background:#9A6540; color:white; font-size:10px; font-weight:700; line-height:16px; text-align:center; }
+.kedvenc-gomb { position:absolute; z-index:1; top:10px; right:10px; width:38px; height:38px; display:inline-flex; justify-content:center; align-items:center; border:1px solid #E3CFB9; border-radius:50%; background:#FFF9F3; color:#6B4226; cursor:pointer; box-shadow:0 2px 6px rgba(59,36,24,.08); }
+.kedvenc-gomb:hover { background:#F5EBDD; }
+.kedvenc-gomb[aria-pressed="true"] { color:#AD4545; border-color:#E0B4AF; }
+.kedvenc-gomb[aria-pressed="true"] svg { fill:currentColor; }
+.kedvenc-gomb-nagy { position:static; width:100%; height:auto; min-height:44px; border-radius:8px; gap:10px; font:inherit; font-weight:600; margin:12px 0 0; box-shadow:none; }
+.matcha-kartya,.kave-kartya,.kakao-kartya,.kiegeszito-kartya,.kedvenc-kiemelt { position:relative; }
+.kedvenc-kiemelt { min-width:0; display:flex; }
+.kedvenc-kiemelt > a { width:100%; box-sizing:border-box; }
+.kedvenc-kiemelt .kedvenc-gomb { top:7px; right:7px; }
+.kedvenc-oldal { max-width:1440px; margin:0 auto; padding:38px 32px 64px; box-sizing:border-box; }
+.kedvenc-oldal [hidden] { display:none !important; }
+.kedvenc-oldal h1 { font:600 clamp(32px,4vw,46px) Georgia,serif; margin:16px 0 8px; }
+.kedvenc-bevezeto { font-size:17px; color:#684A35; line-height:1.6; }
+#kedvenc-db { font-size:15px; font-weight:600; color:#6B4226; margin:20px 0; }
+.kedvenc-racs { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr)); gap:20px; align-items:stretch; }
+.kedvenc-racs article { max-width:none; }
+.kedvenc-ures { background:#F1E6D8; border:1px solid #E3CFB9; border-radius:16px; padding:32px 20px; text-align:center; max-width:520px; margin:24px auto; line-height:1.6; }
+.kedvenc-ures-sziv { font-size:48px; color:#9A6540; }
+.kedvenc-ures h2 { font:600 26px Georgia,serif; }
+.kedvenc-megjegyzes { font-size:13px; color:#684A35; margin-top:24px; }
+.kedvenc-ertesites { position:fixed; bottom:20px; right:20px; z-index:200; background:#6B4226; color:#FFF9F3; padding:12px 18px; border-radius:8px; font-size:15px; max-width:calc(100% - 40px); box-sizing:border-box; box-shadow:0 4px 16px rgba(59,36,24,.2); }
+.kedvenc-ertesites[hidden] { display:none; }
+@media(max-width:700px){.kedvenc-oldal{padding:24px 16px 40px}.ikonok{gap:9px}.kedvenc-racs{gap:14px}}
+@media(max-width:420px){.ikonok{gap:6px}.header{gap:10px}.logotext{font-size:21px}.logoikon{font-size:23px;margin-right:5px}}
+
+.ikonok { padding-right: 10px; box-sizing: border-box; }

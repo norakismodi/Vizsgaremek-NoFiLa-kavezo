@@ -69,6 +69,7 @@ const CozyTermekOldal = (() => {
         gomb.addEventListener("click", () => allapot(jelzes, t, 1));
         kartya.append(kepLink, cim, elem("p", "termek-leiras", t.leiras), elem("p", "termek-ar", penz(t.ar)),
             link("Termékrészletek →", url(t), "termek-reszlet-link"), gomb, jelzes);
+        kartya.append(CozyKedvencek.gomb(t));
         return kartya;
     }
     function reszlet(t, kat, main) {
@@ -118,7 +119,7 @@ const CozyTermekOldal = (() => {
         jelzes.setAttribute("role", "status");
         gomb.addEventListener("click", () => { frissit(true); allapot(jelzes, t, db()); });
         frissit();
-        adat.append(label, vezerlo, osszeg, gomb, jelzes, link("Kosár megtekintése →", "kosar.html", "termek-kosar-link"));
+        adat.append(label, vezerlo, osszeg, gomb, CozyKedvencek.gomb(t, true), jelzes, link("Kosár megtekintése →", "kosar.html", "termek-kosar-link"));
         kartya.append(kepDoboz, adat);
         const ajanlo = elem("section", "termek-ajanlo");
         const racs = elem("div", kat.prefix + "-racs termek-ajanlo-racs");
@@ -156,5 +157,5 @@ const CozyTermekOldal = (() => {
         if (kategoria) kategoria.addEventListener("change", render);
         render();
     }
-    return { indit, url, kosarFrissites };
+    return { indit, url, kosarFrissites, kartya: t => listaKartya(t, kategoriak.find(k => CozyTermekek[k.adat].some(x => x.id === t.id))) };
 })();
